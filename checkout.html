@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Securely complete your purchase with our easy checkout process. Enjoy your shopping" />
+    <title>CheckOut</title>
+    <link rel="stylesheet" href="src/css/checkout.css" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <link rel="stylesheet" href="src/css/Navbar.css" />
+    <link rel="stylesheet" href="src/css/Footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  </head>
+  <body>
+    <!-- //-------------------------------------Navbar----------------------------// -->
+    <header>
+      <div class="header">
+        <nav>
+          <img src="./assets/images/Image/logo.jpg" alt="logo" />
+          <div class="container">
+            <ul class="right-side">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./woman.html">Women</a></li>
+              <li><a href="./woman.html">Men</a></li>
+              <li><a href="./Woman.html">Kid</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <ul class="lefte-side">
+              <li>
+                <div class="search">
+                  <p>Search</p>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </li>
+              <li><i class="fa-solid fa-bag-shopping"></i></li>
+              <li><i class="fa-solid fa-user"></i></li>
+            </ul>
+          </div>
+
+          <!-- //-------------------------------------burger-menu---------------------------// -->
+          <div class="burger">
+            <i class="fa-solid fa-bars burger"></i>
+          </div>
+
+          <div class="burger-menu">
+            <div class="cross-icon">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="burger-menu-item">
+              <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./woman.html">Women</a></li>
+                <li><a href="./woman.html">Men</a></li>
+                <li><a href="./Woman.html">Kid</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- //-------------------------------------Main---------------------------// -->
+    <main>
+      <div class="order">
+        <div class="step">
+          <h1>Shipping</h1>
+          <p class="active">1</p>
+        </div>
+        <div class="step">
+          <h1>Payment</h1>
+          <p>2</p>
+        </div>
+        <div class="step">
+          <h1>Order Review</h1>
+          <p>3</p>
+        </div>
+      </div>
+      <div class="product-order">
+        <div class="product">
+          <img src="./assets/images/Image/product-3.top.jpg" alt="product-3" />
+          <ul>
+            <li>Orange Training Jacket</li>
+            <li>Size: M</li>
+            <li>Number: 1</li>
+            <li>1,350 NOK</li>
+          </ul>
+        </div>
+      </div>
+      <!-- //-------------------------------------Form---------------------------// -->
+      <div class="form">
+        <form action="#">
+          <h2>Delivery Info</h2>
+          <div class="name">
+            <input type="text" name="Name" id="Name" placeholder="Name" />
+            <input
+              type="text"
+              name="LastName"
+              id="LastName"
+              placeholder="LastName" />
+          </div>
+          <div class="address">
+            <input
+              type="text"
+              name="Address"
+              id="Address"
+              placeholder="Address" />
+          </div>
+
+          <div class="location">
+            <input type="text" name="City" id="City" placeholder="City" />
+            <input type="text" name="State" id="State" placeholder="State" />
+            <input
+              type="number"
+              name="Zipcode"
+              id="Zipcode"
+              placeholder="Zipcode" />
+          </div>
+          <h2>Contact Info</h2>
+          <div class="info">
+            <input type="email" name="email" id="email" placeholder="Email" />
+            <input type="text" name="number" id="Phone" placeholder="phone" />
+          </div>
+        </form>
+      </div>
+      <!-- //-------------------------------------Policy---------------------------// -->
+      <div class="checkbox">
+        <div class="policy">
+          <label for="check">
+            <input type="checkbox" name="check" id="check" />
+          </label>
+          <p>I accept privacy and policy</p>
+        </div>
+        <div class="gift">
+          <label for="chek">
+            <input type="checkbox" name="checkbox" id="chek" />
+          </label>
+          <i class="fa-solid fa-gift"></i>
+          <p>
+            Order includes Gifts . The packing slip include with your order will
+            not display price
+          </p>
+        </div>
+        <!-- //-------------------------------------Payment method---------------------------// -->
+        <h3>Payment Method</h3>
+        <div class="payment">
+          <div class="paypal">
+            <div class="content">
+              <label for="check-box">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="check-box"
+                  class="checkbox-round" />
+              </label>
+              <p>PayPal</p>
+            </div>
+            <div class="payment-icon">
+              <img src="./assets/images/Image/paypal.png" alt="paypal" />
+            </div>
+          </div>
+          <div class="credit-card">
+            <div class="content">
+              <label for="checkbox">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  id="checkbox"
+                  class="checkbox-round" />
+              </label>
+              <p>Credit Card</p>
+            </div>
+
+            <div class="payment-icon">
+              <img src="./assets/images/Image/visa.png" alt="visa" />
+              <img src="./assets/images/Image/master.png" alt="master" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttom">
+        <form action="./addtocard.html">
+          <button>Back</button>
+        </form>
+
+        <form action="./checkoutsuccess.html">
+          <button>Confirm</button>
+        </form>
+      </div>
+    </main>
+    <!-- //-------------------------------------Footer---------------------------// -->
+    <footer>
+      <div class="footer-column">
+        <ul class="col-1">
+          <li><a href="/about">About us</a></li>
+          <li><a href="/history">History</a></li>
+          <li><a href="/shipping">Shipping Information</a></li>
+          <li><a href="/retutn">Return Policy</a></li>
+        </ul>
+
+        <ul class="col-2">
+          <li><a href="/help">Need Help?</a></li>
+          <li><a href="/service">customer Service</a></li>
+          <li><a href="/fqa">FQA</a></li>
+          <li><a href="warranty">Warranty</a></li>
+          <li><a href="/policy">Privacy policy</a></li>
+        </ul>
+
+        <ul class="col-3">
+          <li>Contact Us</li>
+          <li class="info">
+            <i class="fa-regular fa-envelope"></i>
+            <p>Email sales@raindays.com</p>
+          </li>
+          <li class="info">
+            <i class="fa-solid fa-headset"></i>
+            <p>Call 12345678</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="line-botton"></div>
+      <div class="icon">
+        <div class="icon-left">
+          <ul class="botton-icon">
+            <li>Klarna</li>
+            <li><i class="fa-brands fa-paypal"></i></li>
+            <li><i class="fa-brands fa-cc-mastercard"></i></li>
+          </ul>
+        </div>
+
+        <div class="icon-right">
+          <ul class="botton-icon">
+            <li>Follow Us</li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-tiktok"></i></li>
+            <li><i class="fa-brands fa-facebook"></i></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const burgerIcon = document.querySelector(".fa-bars");
+      const crossIcon = document.querySelector(".fa-xmark");
+      const burgerMenu = document.querySelector(".burger-menu");
+
+      burgerIcon.addEventListener("click", function () {
+        burgerMenu.classList.add("show-burger-menu");
+      });
+
+      crossIcon.addEventListener("click", function () {
+        burgerMenu.classList.remove("show-burger-menu");
+      });
+    </script>
+  </body>
+</html>

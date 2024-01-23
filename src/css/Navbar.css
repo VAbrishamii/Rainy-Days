@@ -1,0 +1,134 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 220px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+nav img {
+  margin: 30px;
+  padding-top: 10px;
+  height: 3rem;
+  width: 3rem;
+}
+nav a {
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  font-size: 20px;
+  font-family: serif, inria serif;
+}
+
+li {
+  margin-right: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  margin-right: 25px;
+  position: relative;
+}
+
+.search::after {
+  position: absolute;
+  content: "";
+  outline: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.search p {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 25px;
+}
+/* ------------------------------------burger------------------------------------------*/
+.burger {
+  display: none;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 4000;
+}
+.burger-menu {
+  position: absolute;
+  right: 0;
+  width: 120px;
+  background-color: #000;
+  color: #fff;
+  z-index: 5000;
+  height: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+.cross-icon {
+  text-align: right;
+}
+.burger-menu-item {
+  color: #fff;
+}
+.burger-menu-item ul {
+  display: block;
+  text-align: left;
+}
+.burger-menu-item ul li a {
+  color: #fff;
+  text-align: left;
+  line-height: 5px;
+}
+.show-burger-menu {
+  display: block;
+}
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+  .header {
+    position: relative;
+  }
+  .burger {
+    display: flex;
+    margin-top: 20px;
+    font-size: 25px;
+  }
+}
+@media (min-width: 1600px) {
+  .container ul {
+    font-size: 35px;
+  }
+  .search::after {
+    margin-top: 2.8rem;
+  }
+}

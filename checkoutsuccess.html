@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Thank you for your order! Your purchase is confirmed. Expect your order confirmation email shortly. Enjoy free shipping on your next order." />
+    <title>CheckOut Success</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="src/css/checkoutsucces.css" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <link rel="stylesheet" href="src/css/Navbar.css" />
+    <link rel="stylesheet" href="src/css/Footer.css" />
+  </head>
+  <body>
+    <!-- //-------------------------------------Navbar----------------------------// -->
+    <header>
+      <div class="header">
+        <nav>
+          <img src="./assets/images/Image/logo.jpg" alt="logo" />
+          <div class="container">
+            <ul class="right-side">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./woman.html">Women</a></li>
+              <li><a href="./woman.html">Men</a></li>
+              <li><a href="./Woman.html">Kid</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <ul class="lefte-side">
+              <li>
+                <div class="search">
+                  <p>Search</p>
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </li>
+              <li><i class="fa-solid fa-bag-shopping"></i></li>
+              <li><i class="fa-solid fa-user"></i></li>
+            </ul>
+          </div>
+
+          <!-- //-------------------------------------burger-menu---------------------------// -->
+          <div class="burger">
+            <i class="fa-solid fa-bars burger"></i>
+          </div>
+
+          <div class="burger-menu">
+            <div class="cross-icon">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="burger-menu-item">
+              <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./woman.html">Women</a></li>
+                <li><a href="./woman.html">Men</a></li>
+                <li><a href="./Woman.html">Kid</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- //-------------------------------------order---------------------------// -->
+    <main>
+      <div class="order">
+        <div class="step">
+          <h1>Shipping</h1>
+          <p class="active">1</p>
+        </div>
+        <div class="step">
+          <h1>Payment</h1>
+          <p class="active">2</p>
+        </div>
+        <div class="step">
+          <h1>Order Review</h1>
+          <p class="active">3</p>
+        </div>
+      </div>
+      <!-- -----------------------------check---------------------- -->
+      <div class="check">
+        <i class="fa-solid fa-check"></i>
+        <p>
+          Payment Successful,<br />
+          Thank you for your shopping
+        </p>
+      </div>
+      <!-- ----------------------product-order--------------------- -->
+      <div class="product-order">
+        <div class="product">
+          <img src="./assets/images/Image/product-3.top.jpg" alt="product-3" />
+          <ul>
+            <li>Orange Training Jacket</li>
+            <li>Size: M</li>
+            <li>Number: 1</li>
+            <li>1,350 NOK</li>
+          </ul>
+        </div>
+      </div>
+      <div class="track">
+        <p>
+          You can track your shipping by the reference number,<br />
+          that sent your mail box.
+        </p>
+      </div>
+    </main>
+    <!-- //-------------------------------------footer---------------------------// -->
+    <footer>
+      <div class="footer-column">
+        <ul class="col-1">
+          <li><a href="/about">About us</a></li>
+          <li><a href="/history">History</a></li>
+          <li><a href="/shipping">Shipping Information</a></li>
+          <li><a href="/retutn">Return Policy</a></li>
+        </ul>
+
+        <ul class="col-2">
+          <li><a href="/help">Need Help?</a></li>
+          <li><a href="/service">customer Service</a></li>
+          <li><a href="/fqa">FQA</a></li>
+          <li><a href="warranty">Warranty</a></li>
+          <li><a href="/policy">Privacy policy</a></li>
+        </ul>
+
+        <ul class="col-3">
+          <li>Contact Us</li>
+          <li class="info">
+            <i class="fa-regular fa-envelope"></i>
+            <p>Email sales@raindays.com</p>
+          </li>
+          <li class="info">
+            <i class="fa-solid fa-headset"></i>
+            <p>Call 12345678</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="line-botton"></div>
+      <div class="icon">
+        <div class="icon-left">
+          <ul class="botton-icon">
+            <li>Klarna</li>
+            <li><i class="fa-brands fa-paypal"></i></li>
+            <li><i class="fa-brands fa-cc-mastercard"></i></li>
+          </ul>
+        </div>
+
+        <div class="icon-right">
+          <ul class="botton-icon">
+            <li>Follow Us</li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+            <li><i class="fa-brands fa-tiktok"></i></li>
+            <li><i class="fa-brands fa-facebook"></i></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const burgerIcon = document.querySelector(".fa-bars");
+      const crossIcon = document.querySelector(".fa-xmark");
+      const burgerMenu = document.querySelector(".burger-menu");
+
+      burgerIcon.addEventListener("click", function () {
+        burgerMenu.classList.add("show-burger-menu");
+      });
+
+      crossIcon.addEventListener("click", function () {
+        burgerMenu.classList.remove("show-burger-menu");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  gap: 5rem;
+  overflow: hidden;
+}
+
+.add-to-card {
+  margin-top: 10rem;
+  margin-left: 100px;
+  width: 100%;
+  height: 100%;
+}
+.card-slider {
+  width: 100%;
+  height: 100%;
+}
+.main-img-card {
+  display: grid;
+  grid-template-columns: 400px 50px 50px;
+  gap: 5px;
+}
+.main-img-card img {
+  width: 100%;
+  height: 100%;
+}
+.main-img-card img:hover {
+  box-shadow: 0 0 5px #3b3b3b;
+}
+.img-card {
+  display: grid;
+  grid-template-columns: repeat(3, 8rem);
+  justify-content: start;
+  gap: 5px;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.img-card img {
+  width: 90%;
+  height: 100px;
+  box-shadow: 0 0 5px #3b3b3b;
+}
+.color {
+  display: flex;
+  width: 50px !important;
+  height: 50px !important;
+  margin-left: 15px;
+  margin-top: 550px;
+  box-shadow: 0 0 5px #3b3b3b;
+}
+/* ------------------------------------Details ------------------------------------------*/
+.details {
+  margin-top: 12rem;
+  width: 100%;
+}
+.details-content p {
+  text-align: justify;
+  width: 60%;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  margin-left: 40px;
+}
+.size-details {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.size li {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+  padding-top: 10px;
+  margin-right: 10px;
+}
+.counter {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 20px;
+  width: 70px;
+
+  margin-left: 25px;
+  padding: 6px;
+  text-align: center;
+}
+.counter li {
+  color: #fff;
+  text-align: center;
+}
+.details-content .btn {
+  width: 400px;
+  border-radius: 30px;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+.product-details {
+  box-shadow: 0px 1px 2px #1f1f1f;
+  width: 80%;
+  padding: 10px;
+  margin-left: 120px;
+  margin-top: 60px;
+}
+.product-details-item {
+  display: flex;
+}
+.product-details-item h1 {
+  margin-left: 100px;
+  font-size: 2rem;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(251, 135, 4);
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.product-details ul {
+  display: block;
+  margin-left: 80px;
+  line-height: 50px;
+}
+.product-details li {
+  list-style: circle;
+}
+/* ------------------------------------Card------------------------------------------*/
+
+.product h2 {
+  font-size: 2.5rem;
+  display: flex;
+  font-family: sans-serif;
+  text-align: left;
+  padding: 10px 90px;
+  margin-top: 60px;
+}
+
+/* ------------------------------Responsive-------------------------- */
+@media (max-width: 768px) {
+  .container-grid {
+    grid-template-columns: 1fr;
+  }
+  .details {
+    width: 80%;
+    margin-top: 0rem;
+  }
+  .details-content .btn {
+    margin-left: 0;
+  }
+
+  .main-img-card {
+    grid-template-columns: 200px 50px 50px;
+    height: 600px;
+    align-items: center;
+  }
+  .img-card {
+    margin-left: 0;
+    grid-template-columns: repeat(3, 6rem);
+  }
+  .color {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container-grid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+  .details {
+    margin-top: 0rem;
+    margin-left: 7rem;
+  }
+  .counter {
+    margin-left: 0;
+  }
+  .details-content .btn {
+    margin-left: 0;
+    width: 65%;
+  }
+  .details-content p {
+    margin-left: 0;
+  }
+  .product h2 {
+    font-size: 1.6rem;
+  }
+  .product-details {
+    /* margin-left: 50px; */
+    display: block;
+    margin: 15px auto;
+  }
+  .product-details ul {
+    margin: 0;
+  }
+  .product-details-item h1 {
+    margin: 0;
+  }
+  .arrow-down {
+    margin-top: 20px;
+  }
+  .size-details {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1600px) {
+  .main-img-card {
+    grid-template-columns: 800px 70px 70px;
+  }
+  .container ul {
+    font-size: 2rem;
+  }
+  .product-details ul li {
+    font-size: 2rem;
+  }
+  .details-content p,
+  h3 {
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .color {
+    margin-top: 1000px;
+  }
+}
