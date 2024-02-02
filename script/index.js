@@ -10,7 +10,7 @@ const showProducts = (products) => {
     <div>
       <img alt=${product.title} src=${product.image}/>
       <h4>${product.title}</h4>
-      <h3>${product.description}</h3>
+      <h4>${product.description}</h4>
       
     </div>
     `;
