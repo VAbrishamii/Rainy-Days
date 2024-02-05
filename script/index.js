@@ -8,23 +8,17 @@ const showProducts = (products) => {
   products.forEach((product) => {
     const jsx = `
     <div>
-      <img alt=${product.title} src=${product.image}/>
+      <img alt=${product.title} src="${product.image}"/>
       <h4>${product.title}</h4>
       <h4>${product.description}</h4>
+
       
     </div>
     `;
     mainContent.innerHTML += jsx;
   });
 };
-// function displayPost(posts) {
-//   for (let i = 0; i < post.length; i++) {
-//     const title = post[i].title;
-//     const gender = post[i].gender;
-//     // Call a function to generate HTML
-//     console.log("Title:", title, "Gender:", gender);
-//   }
-// }
+
 async function doFetch(url) {
   try {
     const response = await fetch(url);
