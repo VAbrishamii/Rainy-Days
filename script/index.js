@@ -6,13 +6,18 @@ const showProducts = (products) => {
   mainContent.innerHTML = "";
 
   products.forEach((product) => {
-    const jsx = `
-    <div>
-      <img alt=${product.title} src="${product.image}"/>
-      <h4>${product.title}</h4>
-      <h4>${product.description}</h4>
+    const favoriteColor = product.favorite ? "red" : "black";
 
-      
+    const jsx = `
+    <div class='card'>
+     <div class='card-content' >
+     <i  id='favorite' class="fa-regular fa-heart" style='color: ${favoriteColor}' ></i>
+     <img alt=${product.title} src="${product.image}"/>
+      <h2>${product.title}</h2>
+      <p>${product.description}</p>
+      <h2> NOK ${product.price}</h2>
+       <button class='btn'> BUY </button>
+    
     </div>
     `;
     mainContent.innerHTML += jsx;
