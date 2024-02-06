@@ -1,3 +1,5 @@
+import { shortenText } from "./shortenText.mjs";
+
 const url = "https://api.noroff.dev/api/v1/rainy-days";
 
 const mainContent = document.getElementById("products");
@@ -14,7 +16,7 @@ const showProducts = (products) => {
      <i  id='favorite' class="fa-regular fa-heart" style='color: ${favoriteColor}' ></i>
      <img alt=${product.title} src="${product.image}"/>
       <h2>${product.title}</h2>
-      <p>${product.description}</p>
+      <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
        <button class='btn'> BUY </button>
     
