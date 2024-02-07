@@ -60,28 +60,34 @@ li {
   margin-right: 20px;
   color: #000;
 }
-
+/* 
 .search {
   display: flex;
   margin-right: 25px;
   position: relative;
-}
+} */
 
-.search::after {
+/* .search::after {
   position: absolute;
   content: "";
   outline: none;
   border-bottom: 1px solid black;
   width: 100%;
   margin-top: 40px;
+} */
+.search input {
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  margin-right: 5px;
 }
 
-.search p {
+/* .search p {
   margin-top: 0;
   display: flex;
   justify-content: space-between;
   margin-right: 25px;
-}
+} */
 /* ------------------------------------burger------------------------------------------*/
 .burger {
   display: none;

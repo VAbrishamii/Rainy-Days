@@ -2,7 +2,11 @@ import { shortenText } from "./shortenText.mjs";
 
 const url = "https://api.noroff.dev/api/v1/rainy-days";
 
+let posts = 0;
+
 const mainContent = document.getElementById("products");
+const searchIcon = document.getElementById("searchicon");
+const inputBox = document.getElementById("search");
 
 const showProducts = (products) => {
   mainContent.innerHTML = "";
@@ -38,7 +42,23 @@ async function doFetch(url) {
 }
 
 async function main() {
-  const posts = await doFetch(url);
+  posts = await doFetch(url);
   showProducts(posts);
 }
+
+const searchHandler = () => {
+  const query = inputBox.value.trim().toLowerCase();
+  console.log(query);
+
+  if (!query) {
+    showProducts(posts);
+    return;
+  }
+  const filteredProducts = posts.filter((product) =>
+    product.description.toLowerCase().includes(query)
+  );
+
+  showProducts(filteredProducts);
+};
+searchIcon.addEventListener("click", searchHandler);
 main();
