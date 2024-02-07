@@ -2,7 +2,7 @@ import { shortenText } from "./shortenText.mjs";
 
 const url = "https://api.noroff.dev/api/v1/rainy-days";
 
-let posts = 0;
+let posts = null;
 
 const mainContent = document.getElementById("products");
 const searchIcon = document.getElementById("searchicon");
@@ -60,5 +60,7 @@ const searchHandler = () => {
 
   showProducts(filteredProducts);
 };
-searchIcon.addEventListener("click", searchHandler);
+
 main();
+searchIcon.addEventListener("click", searchHandler);
+
