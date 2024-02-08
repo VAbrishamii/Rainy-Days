@@ -57,10 +57,9 @@ const searchHandler = () => {
   const filteredProducts = posts.filter((product) =>
     product.description.toLowerCase().includes(query)
   );
-
   showProducts(filteredProducts);
 };
 
+
 main();
 searchIcon.addEventListener("click", searchHandler);
-

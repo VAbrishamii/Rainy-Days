@@ -66,33 +66,22 @@ li {
   justify-content: space-between;
   position: relative;
 }
-/* .search i {
+.search i {
   position: absolute;
-  display: flex;
-  justify-content: space-around;
-} */
-/* .search::after {
-  position: absolute;
-  content: "";
-  outline: none;
-  border-bottom: 1px solid black;
-  width: 100%;
-  margin-top: 40px;
-} */
+  padding: 10px;
+  margin-left: 320px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .search input {
   border: none;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 25px;
+  padding: 15px;
   margin-right: 5px;
   width: 350px;
 }
 
-/* .search p {
-  margin-top: 0;
-  display: flex;
-  justify-content: space-between;
-  margin-right: 25px;
-} */
 /* ------------------------------------burger------------------------------------------*/
 .burger {
   display: none;
@@ -162,6 +151,11 @@ li {
 }
 
 /* ------------------------------------main------------------------------------------*/
+.product-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 h1 {
   font-size: 2.5vw;
   display: flex;
@@ -169,6 +163,31 @@ h1 {
   font-family: sans-serif;
   text-align: left;
   padding: 10px 90px;
+}
+.gender i {
+  margin-left: 15px;
+}
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+
+  /* display: none; */
+}
+.dropdown li {
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  display: none;
+}
+.category ul li {
+  margin: 0 20px;
+  cursor: pointer;
+}
+.sale {
+  color: rgb(222, 64, 64);
 }
 
 /*-----------------------------------------About-------------------------*/
