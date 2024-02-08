@@ -1,5 +1,6 @@
 import { shortenText } from "./shortenText.mjs";
 
+
 const url = "https://api.noroff.dev/api/v1/rainy-days";
 
 let posts = null;
@@ -7,6 +8,9 @@ let posts = null;
 const mainContent = document.getElementById("products");
 const searchIcon = document.getElementById("searchicon");
 const inputBox = document.getElementById("search");
+const genderIcon = document.querySelector(".gender");
+const dropdownMenu = document.querySelector(".dropdown");
+const filteredproduct = document.querySelectorAll("#filter li");
 
 const showProducts = (products) => {
   mainContent.innerHTML = "";
@@ -54,12 +58,29 @@ const searchHandler = () => {
     showProducts(posts);
     return;
   }
-  const filteredProducts = posts.filter((product) =>
+  const searchProducts = posts.filter((product) =>
     product.description.toLowerCase().includes(query)
   );
-  showProducts(filteredProducts);
+  showProducts(searchProducts);
 };
+// const filterHandeler = (event) =>{
+//  const category = event.target.innerText.toLowerCase();
+//  filteredproduct.forEach((li) => {
+//   if (li.innerText.toLowerCase() === category) {
+//     li.className = "show-dropdown-li";
 
+//   }else{
+//     li.className = "";
+//   }
+//  });
+// };
 
 main();
+
 searchIcon.addEventListener("click", searchHandler);
+
+filteredproduct.forEach((li) => li.addEventListener("click", filterHandeler));
+
+genderIcon.addEventListener("click", () => {
+  dropdownMenu.classList.toggle("show-dropdown-li");
+});

@@ -189,6 +189,9 @@ h1 {
 .sale {
   color: rgb(222, 64, 64);
 }
+.show-dropdown-li{
+  display: block !important;
+}
 
 /*-----------------------------------------About-------------------------*/
 .about {
