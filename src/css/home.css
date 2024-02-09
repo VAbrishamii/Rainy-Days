@@ -167,20 +167,25 @@ h1 {
 .gender i {
   margin-left: 15px;
 }
-.dropdown {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-
-  /* display: none; */
+.gender {
+display: flex;
+flex-direction: column;
 }
-.dropdown li {
-  padding: 5px;
-  background-color: #000;
-  color: #fff;
-  font-size: 2rem;
-  display: none;
+.gender span {
+margin-bottom: 30px;
+
+}
+.gender-text {
+  padding: 10px;
+  background-color: aliceblue;
+  width: 60%;
+  
+}
+.gender-text:hover{
+  color: rgb(117, 114, 114);
+}
+.category {
+  display: flex;
 }
 .category ul li {
   margin: 0 20px;
@@ -189,7 +194,7 @@ h1 {
 .sale {
   color: rgb(222, 64, 64);
 }
-.show-dropdown-li{
+.show-dropdown-li {
   display: block !important;
 }
 
