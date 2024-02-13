@@ -112,7 +112,7 @@ li {
   text-align: left;
 }
 .burger-menu-item ul li a {
-  color: #fff;
+  color: #fcfcfc;
   text-align: left;
   font-size: 18px;
 }
@@ -151,52 +151,6 @@ li {
 }
 
 /* ------------------------------------main------------------------------------------*/
-.product-menu {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-h1 {
-  font-size: 2.5vw;
-  display: flex;
-  flex-wrap: wrap;
-  font-family: sans-serif;
-  text-align: left;
-  padding: 10px 90px;
-}
-.gender i {
-  margin-left: 15px;
-}
-.gender {
-display: flex;
-flex-direction: column;
-}
-.gender span {
-margin-bottom: 30px;
-
-}
-.gender-text {
-  padding: 10px;
-  background-color: aliceblue;
-  width: 60%;
-  
-}
-.gender-text:hover{
-  color: rgb(117, 114, 114);
-}
-.category {
-  display: flex;
-}
-.category ul li {
-  margin: 0 20px;
-  cursor: pointer;
-}
-.sale {
-  color: rgb(222, 64, 64);
-}
-.show-dropdown-li {
-  display: block !important;
-}
 
 /*-----------------------------------------About-------------------------*/
 .about {
