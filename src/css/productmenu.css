@@ -45,6 +45,7 @@ p {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+  display: none;
 }
 .genders .gender {
   cursor: pointer;
@@ -64,5 +65,5 @@ p {
   
 }
 .category.active .genders{
-  display: none;
+  display: block;
 }

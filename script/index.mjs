@@ -1,6 +1,5 @@
 import { shortenText } from "./shortenText.mjs";
-import { optionMenu, selectBtn, options, btnText, } from "./optionMenu.mjs";
-
+import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
 
 const url = "https://api.noroff.dev/api/v1/rainy-days";
 
@@ -9,9 +8,8 @@ let posts = null;
 const mainContent = document.getElementById("products");
 const searchIcon = document.getElementById("searchicon");
 const inputBox = document.getElementById("search");
-const genderIcon = document.querySelector(".gender");
-const dropdownMenu = document.querySelector(".dropdown");
-const filteredproduct = document.querySelectorAll("#filter li");
+const filteredproduct = document.querySelectorAll(".genders li");
+const saleProducts = document.querySelector(".sale");
 
 const showProducts = (products) => {
   mainContent.innerHTML = "";
@@ -53,31 +51,50 @@ async function main() {
 
 const searchHandler = () => {
   const query = inputBox.value.trim().toLowerCase();
- 
 
   if (!query) {
     showProducts(posts);
     return;
   }
   const searchProducts = posts.filter((product) =>
-    product.description.toLowerCase().includes(query)
+    product.description.toLowerCase().includs(query)
   );
   showProducts(searchProducts);
 };
 
+const filteredHander = (e) => {
+  const selectedOption = (e.target.innerText.toLowerCase());
 
- const filteredProducts = () =>{
-  let  selectedOption = options.value;
-  if(!selectedOption){
+  if(selectedOption === "all"){
     showProducts(posts);
     return;
+  } 
+    const filterPosts = posts.filter((product) => 
+      product.gender.toLowerCase() === selectedOption
+    );
+    showProducts(filterPosts);
   }
-  const filterPosts = posts.filter((product) =>
-  product.gender.toLowerCase().includes(selectedOption));
-  showProducts(filterPosts)
- }
+  
+
+  const saleHandler = (e)=>{
+    const saleOptions = (e.target.innerText.toLowerCase());
+    console.log(saleOptions)
+    const salePost = product.onSale.valueOf()
+    console.log(salePost)
+   
+    if(salePost && saleOptions == "sale"){
+      const saleFilter = posts.filter((product) => product.onSale.valueOf())
+
+      showProducts(saleFilter);
+    }
+    showProducts(posts);
+  }
+
+
+
 
 main();
 
-
 searchIcon.addEventListener("click", searchHandler);
+filteredproduct.forEach((li) => li.addEventListener("click",filteredHander));
+saleProducts.addEventListener("click", saleHandler);

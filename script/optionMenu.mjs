@@ -10,13 +10,10 @@ selectBtn.addEventListener("click", () =>
 
 options.forEach((Option) => {
   Option.addEventListener("click", () => {
-  let  selectedOption = Option.querySelector(".gender-text").innerText;
+    let selectedOption = Option.querySelector(".gender-text").innerText;
     btnText.innerText = selectedOption;
     optionMenu.classList.toggle("active");
-
-    
   });
-  
 });
 
 export { optionMenu, selectBtn, options, btnText };
