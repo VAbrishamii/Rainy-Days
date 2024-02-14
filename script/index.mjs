@@ -1,5 +1,5 @@
 import { shortenText } from "./shortenText.mjs";
-import {optionMenu,selectBtn,options,btnText,} from "./optionMenu.mjs";
+import { optionMenu, selectBtn, options, btnText, } from "./optionMenu.mjs";
 
 
 const url = "https://api.noroff.dev/api/v1/rainy-days";
@@ -53,7 +53,7 @@ async function main() {
 
 const searchHandler = () => {
   const query = inputBox.value.trim().toLowerCase();
-  console.log(query);
+ 
 
   if (!query) {
     showProducts(posts);
@@ -64,22 +64,20 @@ const searchHandler = () => {
   );
   showProducts(searchProducts);
 };
-// const filterHandeler = (event) =>{
-//  const category = event.target.innerText.toLowerCase();
-//  filteredproduct.forEach((li) => {
-//   if (li.innerText.toLowerCase() === category) {
-//     li.className = "show-dropdown-li";
 
-//   }else{
-//     li.className = "";
-//   }
-//  });
-// };
+
+ const filteredProducts = () =>{
+  let  selectedOption = options.value;
+  if(!selectedOption){
+    showProducts(posts);
+    return;
+  }
+  const filterPosts = posts.filter((product) =>
+  product.gender.toLowerCase().includes(selectedOption));
+  showProducts(filterPosts)
+ }
 
 main();
 
+
 searchIcon.addEventListener("click", searchHandler);
-
-// filteredproduct.forEach((li) => li.addEventListener("click", filterHandeler));
-
-
