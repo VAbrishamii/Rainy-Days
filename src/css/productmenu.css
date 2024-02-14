@@ -1,22 +1,23 @@
 .product-menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
-h1 {
-  font-size: 2.5vw;
+p {
+  font-size: 2vw;
   display: flex;
   flex-wrap: wrap;
-  font-family: sans-serif;
-  text-align: left;
-  padding: 10px 90px;
+  text-align: center;
+  padding: 10px 60px;
 }
+
 .category .select-btn {
   display: flex;
   height: 35px;
   border: 1px solid black;
   padding: 15px;
-  font-size: 18px;
+  font-size: 1.4vw;
   font-weight: 450;
   border-radius: 8px;
   align-items: center;
@@ -25,6 +26,38 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-top: 60px;
 
+}
+.select-btn i{
+  margin-left: 20px;
+}
+.category .genders{
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.genders .gender {
+  cursor: pointer;
+  padding: 0 14px;
+  align-items: center;
+  
+}
+.gender {
+  font-size: 1.5rem;
+
+}
+.genders .gender:hover{
+  color: rgb(117, 114, 114);
+}
+.sale {
+  color: rgb(222, 64, 64);
+  
+}
+.category.active .genders{
+  display: none;
 }
 /* .gender i {
   margin-left: 15px;
@@ -53,9 +86,7 @@ h1 {
   margin: 0 20px;
   cursor: pointer;
 }
-.sale {
-  color: rgb(222, 64, 64);
-}
+
 .show-dropdown-li {
   display: block !important;
 } 

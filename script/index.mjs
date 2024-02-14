@@ -1,4 +1,5 @@
 import { shortenText } from "./shortenText.mjs";
+import {optionMenu,selectBtn,options,btnText,} from "./optionMenu.mjs";
 
 
 const url = "https://api.noroff.dev/api/v1/rainy-days";
@@ -79,8 +80,6 @@ main();
 
 searchIcon.addEventListener("click", searchHandler);
 
-filteredproduct.forEach((li) => li.addEventListener("click", filterHandeler));
+// filteredproduct.forEach((li) => li.addEventListener("click", filterHandeler));
 
-genderIcon.addEventListener("click", () => {
-  dropdownMenu.classList.toggle("show-dropdown-li");
-});
+
