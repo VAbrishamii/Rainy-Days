@@ -1,5 +1,6 @@
 import { shortenText } from "./shortenText.mjs";
 import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
+import { burgerIcon,crossIcon,burgerMenu } from "./showburgerMenu.mjs";
 
 const url = "https://api.noroff.dev/api/v1/rainy-days";
 
@@ -19,16 +20,19 @@ const showProducts = (products) => {
     const favoriteColor = product.favorite ? "red" : "black";
 
     const jsx = `
-    <div class='card'>
+    <a href='/addtocard.html?id=${product.id}' class='card'>
+   
      <div class='card-content' >
      <i  id='favorite' class="fa-regular fa-heart" style='color: ${favoriteColor}' ></i>
-     <img alt=${product.title} src="${product.image}"/>
+   
+      <img alt=${product.title} src="${product.image}" class='image'/>
       <h2>${product.title}</h2>
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
        <button class='btn'> BUY </button>
-    
-    </div>
+       </div>
+    </a>
+
     `;
     mainContent.innerHTML += jsx;
   });
@@ -80,23 +84,23 @@ const saleHandler = (e) => {
   const saleOptions = e.target.innerText.toLowerCase();
   const saleFilter = posts.filter((product) => product.onSale === true);
 
-
   if (saleFilter) {
     showProducts(saleFilter);
     return;
-  }product.dis
+  }
+  product.dis;
   showProducts(posts);
 };
 
 const favoriteHandler = (e) => {
   const favoriteOptions = e.target.innerText.toLowerCase();
   const favoriteFilter = posts.filter((product) => product.favorite === true);
-  if (favoriteFilter){
+  if (favoriteFilter) {
     showProducts(favoriteFilter);
-    return
+    return;
   }
   showProducts(posts);
-}
+};
 main();
 
 searchIcon.addEventListener("click", searchHandler);

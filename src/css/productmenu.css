@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  
+  width: 85vw;
 }
 p {
   font-size: 2vw;
@@ -12,7 +12,7 @@ p {
   text-align: center;
   padding: 10px 60px;
 }
-.category{
+.category {
   width: 20%;
 }
 .category .select-btn {
@@ -28,16 +28,15 @@ p {
   justify-content: space-between;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin-top: 40px;
-
 }
-.select-btn i{
+.select-btn i {
   margin-left: 20px;
   transition: 0.2s;
 }
-.category.active .select-btn i{
+.category.active .select-btn i {
   transform: rotate(-180deg);
 }
-.category .genders{
+.category .genders {
   position: relative;
   padding: 20px;
   margin-top: 10px;
@@ -51,19 +50,34 @@ p {
   cursor: pointer;
   padding: 0 14px;
   align-items: center;
-  
 }
 .gender {
   font-size: 1.5rem;
-
 }
-.genders .gender:hover{
+.genders .gender:hover {
   color: rgb(117, 114, 114);
 }
 .sale {
   color: rgb(222, 64, 64);
-  
 }
-.category.active .genders{
+.category.active .genders {
   display: block;
+}
+@media (max-width: 425px) {
+  p {
+    font-size: 3vw;
+  }
+  .category {
+    width: 40%;
+  }
+  .category .select-btn {
+    font-size: 0.5rem;
+    padding: 10px;
+  }
+  .category .genders{
+    padding: 8px;
+  }
+  .gender{
+    font-size: 0.5rem;
+  }
 }
