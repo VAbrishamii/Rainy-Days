@@ -10,6 +10,7 @@ const searchIcon = document.getElementById("searchicon");
 const inputBox = document.getElementById("search");
 const filteredproduct = document.querySelectorAll(".genders li");
 const saleProducts = document.querySelector(".sale");
+const favoriteProducts = document.querySelector(".favorite");
 
 const showProducts = (products) => {
   mainContent.innerHTML = "";
@@ -63,38 +64,42 @@ const searchHandler = () => {
 };
 
 const filteredHander = (e) => {
-  const selectedOption = (e.target.innerText.toLowerCase());
+  const selectedOption = e.target.innerText.toLowerCase();
 
-  if(selectedOption === "all"){
+  if (selectedOption === "all") {
     showProducts(posts);
     return;
-  } 
-    const filterPosts = posts.filter((product) => 
-      product.gender.toLowerCase() === selectedOption
-    );
-    showProducts(filterPosts);
   }
-  
+  const filterPosts = posts.filter(
+    (product) => product.gender.toLowerCase() === selectedOption
+  );
+  showProducts(filterPosts);
+};
 
-  const saleHandler = (e)=>{
-    const saleOptions = (e.target.innerText.toLowerCase());
-    console.log(saleOptions)
-    const salePost = product.onSale.valueOf()
-    console.log(salePost)
-   
-    if(salePost && saleOptions == "sale"){
-      const saleFilter = posts.filter((product) => product.onSale.valueOf())
+const saleHandler = (e) => {
+  const saleOptions = e.target.innerText.toLowerCase();
+  const saleFilter = posts.filter((product) => product.onSale === true);
 
-      showProducts(saleFilter);
-    }
-    showProducts(posts);
+
+  if (saleFilter) {
+    showProducts(saleFilter);
+    return;
+  }product.dis
+  showProducts(posts);
+};
+
+const favoriteHandler = (e) => {
+  const favoriteOptions = e.target.innerText.toLowerCase();
+  const favoriteFilter = posts.filter((product) => product.favorite === true);
+  if (favoriteFilter){
+    showProducts(favoriteFilter);
+    return
   }
-
-
-
-
+  showProducts(posts);
+}
 main();
 
 searchIcon.addEventListener("click", searchHandler);
-filteredproduct.forEach((li) => li.addEventListener("click",filteredHander));
+filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
 saleProducts.addEventListener("click", saleHandler);
+favoriteProducts.addEventListener("click", favoriteHandler);
