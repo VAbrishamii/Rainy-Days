@@ -5,8 +5,15 @@
   gap: 5rem;
   overflow: hidden;
 }
-
-.add-to-card {
+.name {
+  font-size: 3rem;
+  color: #1f1f1f;
+}
+.price {
+  font-size: 3rem;
+  color: black;
+}
+/* .add-to-card {
   margin-top: 10rem;
   margin-left: 100px;
   width: 100%;
@@ -50,9 +57,9 @@
   margin-left: 15px;
   margin-top: 550px;
   box-shadow: 0 0 5px #3b3b3b;
-}
+} */
 /* ------------------------------------Details ------------------------------------------*/
-.details {
+/* .details {
   margin-top: 12rem;
   width: 100%;
 }
@@ -132,17 +139,17 @@
 }
 .product-details li {
   list-style: circle;
-}
+} */
 /* ------------------------------------Card------------------------------------------*/
 
-.product h2 {
+/* .product h2 {
   font-size: 2.5rem;
   display: flex;
   font-family: sans-serif;
   text-align: left;
   padding: 10px 90px;
   margin-top: 60px;
-}
+} */
 
 /* ------------------------------Responsive-------------------------- */
 @media (max-width: 768px) {
