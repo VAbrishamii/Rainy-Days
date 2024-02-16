@@ -15,6 +15,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+      <script defer type="module" src="script/addToCard.mjs"></script>
   </head>
   <body>
     <!-- //-------------------------------------Navbar----------------------------// -->
@@ -69,6 +70,25 @@
     <!-- //-------------------------------------Add to card Slider---------------------------// -->
     <main>
       <div class="container-grid">
+        <div class="title">PRODUCT DETAILS</div>
+        <div class="details">
+          <div class="image">
+            <img src="" alt="" />
+          </div>
+          <div class="content">
+            <h1 class="name"></h1>
+            <div class="price"></div>
+            <div class="buttons">
+              <button>Check Out</button>
+              <button>
+                <i class="fa-solid fa-cart-shopping"></i>Add to Card
+              </button>
+            </div>
+            <div class="description"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="container-grid">
         <div class="add-to-card">
           <div class="card-slider">
             <div class="main-img-card">
@@ -98,8 +118,8 @@
           </div>
         </div>
 
-        <!-- //-------------------------------------Details---------------------------// -->
-        <div class="details">
+        //-------------------------------------Details---------------------------// -->
+      <!-- <div class="details">
           <div class="details-content">
             <h1>Fix Hood Jacket</h1>
             <h1>NOK 1,990</h1>
@@ -144,10 +164,10 @@
             green energy
           </li>
         </ul>
-      </div>
+      </div> -->
 
       <!-- //-------------------------------------Card---------------------------// -->
-      <div class="product">
+      <!-- <div class="product">
         <h2>Similar Products</h2>
       </div>
 
@@ -211,10 +231,10 @@
             </form>
           </div>
         </div>
-      </div>
+      </div> -->
     </main>
     <!-- //-------------------------------------Footer---------------------------// -->
-    <footer>
+    <!-- <footer>
       <div class="footer-column">
         <ul class="col-1">
           <li><a href="/about">About us</a></li>
@@ -263,9 +283,9 @@
           </ul>
         </div>
       </div>
-    </footer>
+    </footer> -->
 
-    <script>
+    <!-- <script>
       const burgerIcon = document.querySelector(".fa-bars");
       const crossIcon = document.querySelector(".fa-xmark");
       const burgerMenu = document.querySelector(".burger-menu");
@@ -277,6 +297,6 @@
       crossIcon.addEventListener("click", function () {
         burgerMenu.classList.remove("show-burger-menu");
       });
-    </script>
+    </script> -->
   </body>
 </html>
