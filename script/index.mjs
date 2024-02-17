@@ -89,7 +89,7 @@ const saleHandler = (e) => {
     showProducts(saleFilter);
     return;
   }
-  product.dis;
+
   showProducts(posts);
 };
 

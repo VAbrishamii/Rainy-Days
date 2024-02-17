@@ -10,19 +10,25 @@ const detailsProducts = (product) => {
     window.location.href = "/";
     return;
   }
-  // details.forEach((details) => {
-  // details.innerHTML = " ";
-
-  // const thisProduct = products.find(value => value.id == productId);
-
   details.querySelector(".image img").src = product.image;
   details.querySelector(".name").innerText = product.title;
   details.querySelector(".price").innerText = "NOK" + product.price;
   details.querySelector(".description").innerText = product.description;
-  details.querySelector(".color").innerText = "Color:" + product.baseColor;
-  details.querySelector(".size").innerText = "Choose Your size: " + product.sizes;
+  details.querySelector(".color").innerText = "Color: " + product.baseColor;
+  details.querySelector(".size").innerText =
+    "Choose Your Size: " + product.sizes;
   details.querySelector(".gender").innerText = product.gender;
-  details.querySelector(".discountedprice").innerText = "DiscountedPrice: NOK"+ product.discountedPrice;
+  details.querySelector(".discountedprice").innerText =
+    "DiscountedPrice: NOK" + product.discountedPrice;
+
+  const sizeElements = details.querySelectorAll(".size");
+  sizeElements.forEach(sizeElement => {
+    sizeElement.style.cursor = "pointer";
+    sizeElement.addEventListener("click", () => {
+      sizeElements.forEach(elemnt => elemnt.classList.toggle("selected-size"));
+    
+    });
+  });
 };
 
 async function doFetch(url) {
@@ -37,17 +43,15 @@ async function doFetch(url) {
 }
 
 async function main() {
-  // posts = await doFetch(url);
-  // detailsProducts(posts);
-  try{
+  try {
     posts = await doFetch(url);
     console.log(posts);
-    const thisProduct = posts.find(value => value.id == productId);
+    const thisProduct = posts.find((value) => value.id == productId);
     console.log(thisProduct);
     detailsProducts(thisProduct);
-  }catch(error){
+  } catch (error) {
     console.log("Error fetching data:", error);
-    alert("An error ocuured! Please try again")
+    alert("An error ocuured! Please try again");
   }
 }
 main();
