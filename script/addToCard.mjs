@@ -1,5 +1,6 @@
 import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
+import { shortenText } from "./shortenText.mjs";
 
 let posts = null;
 let details = document.querySelector(".details");
@@ -12,24 +13,35 @@ const detailsProducts = (product) => {
   }
   details.querySelector(".image img").src = product.image;
   details.querySelector(".name").innerText = product.title;
-  details.querySelector(".price").innerText = "NOK" + product.price;
+  details.querySelector(".price").innerText = "NOK  " + product.price;
   details.querySelector(".description").innerText = product.description;
   details.querySelector(".color").innerText = "Color: " + product.baseColor;
-  details.querySelector(".size").innerText =
-    "Choose Your Size: " + product.sizes;
   details.querySelector(".gender").innerText = product.gender;
   details.querySelector(".discountedprice").innerText =
     "DiscountedPrice: NOK" + product.discountedPrice;
 
-  const sizeElements = details.querySelectorAll(".size");
-  sizeElements.forEach(sizeElement => {
+  const sizeCounter = details.querySelector(".size");
+  sizeCounter.innerHTML = "Choose your size :  ";
+
+  product.sizes.forEach((size) => {
+    const sizeElement = document.createElement("div");
+    sizeElement.textContent = size;
+    sizeElement.classList.add("size");
     sizeElement.style.cursor = "pointer";
     sizeElement.addEventListener("click", () => {
-      sizeElements.forEach(elemnt => elemnt.classList.toggle("selected-size"));
-    
+      document.querySelectorAll(".size").forEach((elemnt) => elemnt.classList.remove("selected-size"));
+      sizeElement.classList.add("selected-size");
     });
+    sizeCounter.appendChild(sizeElement);
   });
+
+
+
 };
+
+
+
+
 
 async function doFetch(url) {
   try {
@@ -55,3 +67,5 @@ async function main() {
   }
 }
 main();
+
+

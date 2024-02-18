@@ -3,7 +3,7 @@ import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
 import { burgerIcon,crossIcon,burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 
-// const url = "https://api.noroff.dev/api/v1/rainy-days";
+
 
 let posts = null;
 
