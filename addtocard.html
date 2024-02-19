@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="src/css/Navbar.css" />
     <link rel="stylesheet" href="src/css/Footer.css" />
     <link rel="stylesheet" href="src/css/Card.css" />
+    <link rel="stylesheet" href="src/css/shoppingcard.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <script defer type="module" src="script/addToCard.mjs"></script>
   </head>
-  <body>
+  <body >
     <!-- //-------------------------------------Navbar----------------------------// -->
     <header>
       <div class="header">
@@ -39,7 +40,11 @@
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
               </li>
-              <li><i class="fa-solid fa-bag-shopping"></i></li>
+              <li>
+                <i class="fa-solid fa-bag-shopping shopping-card"
+                  ><span class="counter">0</span></i
+                >
+              </li>
               <li><i class="fa-solid fa-user"></i></li>
             </ul>
           </div>
@@ -84,160 +89,37 @@
             <div class="price"></div>
             <div class="discountedprice"></div>
             <div class="buttons">
-              <button class="btn">Check Out</button>
-              <button class="btn">
-                <i class="fa-solid fa-cart-shopping"></i>Add to Card
+              <!-- <button class="btn">Check Out</button> -->
+              <button class="btn addCard">
+                <i class="fa-solid fa-cart-shopping "></i>Add to Card
               </button>
             </div>
           </div>
         </div>
-     
       </div>
-      
-      <!-- <div class="container-grid">
-        <div class="add-to-card">
-          <div class="card-slider">
-            <div class="main-img-card">
-              <img
-                src="./assets/images/Image/product-2.4.jpg"
-                alt="product-2" />
-
-              <img
-                src="./assets/images/Image/add-to-card-gray.jpg"
-                alt="add-to-card"
-                class="color" />
-              <img
-                src="./assets/images/Image/add-to-card-blue.jpg"
-                alt="add-to-card"
-                class="color" />
-            </div>
-
-            <div class="img-card">
-              <img src="./assets/images/Image/product-2.4.jpg" alt="product" />
-              <img
-                src="./assets/images/Image/add-to-card.jpg"
-                alt="add-to-card" />
-              <img
-                src="./assets/images/Image/add-to-card 2.jpg"
-                alt="add-to-card" />
+      <div >
+        <div class="cardTab">
+          <h2>Shopping Card</h2>
+          <div class="listCard">
+            <div class="item">
+              <div class="image"></div>
+              <div class="name"></div>
+              <div class="totalPrice"></div>
+              <div class="quantity">
+                <span class="delete"
+                  ><i class="fa-regular fa-trash-can"></i
+                ></span>
+                <span class="number">0</span>
+                <span class="plus"><i class="fa-solid fa-plus"></i></span>
+              </div>
             </div>
           </div>
-        </div>
-
-        //-------------------------------------Details---------------------------// -->
-      <!-- <div class="details">
-          <div class="details-content">
-            <h1>Fix Hood Jacket</h1>
-            <h1>NOK 1,990</h1>
-            <p>
-              Fix hood Jacket is a statement piece that quickly became a
-              bestseller among customers. The jacket is waterproof and has great
-              details in the design that gives you that little something extra
-              in the everyday life and for finer occasions.
-            </p>
-            <p>CHOOSE SIZE</p>
-            <div class="size-details">
-              <ul class="size">
-                <li>XS</li>
-                <li>S</li>
-                <li>M</li>
-                <li>L</li>
-              </ul>
-              <ul class="counter">
-                <li>-</li>
-                <li>1</li>
-                <li>+</li>
-              </ul>
-            </div>
-
-            <form action="./checkout.html">
-              <button class="btn">BUY</button>
-            </form>
+          <div class="button">
+            <button class="close">Close</button>
+            <button class="checkOut">Check Out</button>
           </div>
         </div>
       </div>
-      <div class="product-details">
-        <div class="product-details-item">
-          <h1>Details</h1>
-          <div class="arrow-down"></div>
-        </div>
-        <ul>
-          <li>Waterproof</li>
-          <li>Breathable</li>
-          <li>Two big zip pocket inside</li>
-          <li>
-            Lining: Stain 55% polyester 45% viscose-Factory supplied by 100%
-            green energy
-          </li>
-        </ul>
-      </div> -->
-
-      <!-- //-------------------------------------Card---------------------------// -->
-      <!-- <div class="product">
-        <h2>Similar Products</h2>
-      </div>
-
-      <div class="gallary clearfix">
-        <div class="card">
-          <div class="card-content">
-            <img src="./assets/images/Image/product-2.8.jpg" alt="product-2" />
-            <h2>ALPHA HYBRID JACKET WOMEN</h2>
-            <p>
-              Soft Softshel Jacket and GOR_TEX protection combine in a hybrid
-              jacket for climing
-            </p>
-            <h2>NOK 2580</h2>
-            <form action="./addtocard.html">
-              <button class="btn">ADD TO CARD</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-content">
-            <img src="./assets/images/Image/product-2.5.jpg" alt="product" />
-            <h2>ACTIC JACKET MEN</h2>
-            <p>
-              Actic is a reliable zip jacket with all features you need for long
-              daywith maximum protection
-            </p>
-            <h2>NOK 1850</h2>
-            <form action="./addtocard.html">
-              <button class="btn">ADD TO CARD</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-content">
-            <img src="./assets/images/Image/product-2.2.webp" alt="product-2" />
-            <h2>LEGACY JACKET MEN</h2>
-            <p>
-              Legacy style with new technology that keep you dry during your
-              session on mountain
-            </p>
-            <h2>NOK 2400</h2>
-            <form action="./addtocard.html">
-              <button class="btn">ADD TO CARD</button>
-            </form>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-content">
-            <img src="./assets/images/Image/product-2.7.jpg" alt="product-2" />
-            <h2>CYCLONE JACKET WOMEN</h2>
-            <p>
-              Cyclone is everything you wanted in a jacket and insulated enough
-              to handle the harshest weather
-            </p>
-            <h2>NOK 1900</h2>
-            <form action="./addtocard.html">
-              <button class="btn">ADD TO CARD</button>
-            </form>
-          </div>
-        </div>
-      </div> -->
     </main>
     <!-- //-------------------------------------Footer---------------------------// -->
     <footer>
@@ -289,20 +171,6 @@
           </ul>
         </div>
       </div>
-    </footer> 
-
-    <!-- <script>
-      const burgerIcon = document.querySelector(".fa-bars");
-      const crossIcon = document.querySelector(".fa-xmark");
-      const burgerMenu = document.querySelector(".burger-menu");
-
-      burgerIcon.addEventListener("click", function () {
-        burgerMenu.classList.add("show-burger-menu");
-      });
-
-      crossIcon.addEventListener("click", function () {
-        burgerMenu.classList.remove("show-burger-menu");
-      });
-    </script> -->
+    </footer>
   </body>
 </html>

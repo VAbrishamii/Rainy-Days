@@ -12,6 +12,7 @@ h1{
   display: flex;
   max-width: 100%;
   justify-content: center;
+  align-items: center;
   flex-wrap: nowrap;
 
 }
@@ -67,6 +68,9 @@ h1{
 .btn i{
   margin-right: 10px;
 }
+
+
+
 @media (max-width: 1024px) {
   .content{
     line-height: 30px;
@@ -95,63 +99,3 @@ h1{
 
 }
 
-/* @media (max-width: 1024px) {
-  .container-grid {
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
-  .details {
-    margin-top: 0rem;
-    margin-left: 7rem;
-  }
-  .counter {
-    margin-left: 0;
-  }
-  .details-content .btn {
-    margin-left: 0;
-    width: 65%;
-  }
-  .details-content p {
-    margin-left: 0;
-  }
-  .product h2 {
-    font-size: 1.6rem;
-  } */ */
-/* .product-details {
-    
-    display: block;
-    margin: 15px auto;
-  }
-  .product-details ul {
-    margin: 0;
-  }
-  .product-details-item h1 {
-    margin: 0;
-  }
-  .arrow-down {
-    margin-top: 20px;
-  }
-  .size-details {
-    justify-content: center;
-  }
-
-
-@media (min-width: 1600px) {
-  .main-img-card {
-    grid-template-columns: 800px 70px 70px;
-  }
-  .container ul {
-    font-size: 2rem;
-  }
-  .product-details ul li {
-    font-size: 2rem;
-  }
-  .details-content p,
-  h3 {
-    font-size: 2rem;
-    line-height: 1;
-  }
-  .color {
-    margin-top: 1000px;
-  }
-} */

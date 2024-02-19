@@ -4,7 +4,11 @@ import { shortenText } from "./shortenText.mjs";
 
 let posts = null;
 let details = document.querySelector(".details");
-let productId = new URLSearchParams(window.location.search).get("id");
+const productId = new URLSearchParams(window.location.search).get("id");
+const iconCard = document.querySelector('.shopping-card');
+const close = document.querySelector('.close');
+const body = document.querySelector('body');
+const addCard = document.querySelector('.addCard');
 
 const detailsProducts = (product) => {
   if (!product) {
@@ -39,7 +43,15 @@ const detailsProducts = (product) => {
 
 };
 
+iconCard.addEventListener('click', () => {
+  body.classList.toggle('showCard')
 
+});
+close.addEventListener('click', ()=>{
+  body.classList.toggle('showCard')
+});
+
+const addToCard = (e)
 
 
 
@@ -67,5 +79,7 @@ async function main() {
   }
 }
 main();
+
+addCard.addEventListener('click', addToCard)
 
 

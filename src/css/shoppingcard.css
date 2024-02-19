@@ -1,0 +1,74 @@
+.cardTab{
+    width: 400px;
+    background-color: rgb(247, 247, 245);
+    color: #414040;
+    position: fixed;
+    inset: 0 -400px 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: transform 3s;
+  }
+  .showCard .cardTab{
+    inset: 0 0 0 auto;
+    
+  }
+  /* body.showCard {
+    transform: translateX(-250px);
+
+  } */
+  .cardTab h2{
+    font-size: 2rem;
+    padding: 20px;
+    margin: 0;
+    font-weight: 400;
+    
+  }
+  .button{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+  }
+  .button button{
+    font-size: 1.5rem;
+    background-color: #414040;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .close{
+    background-color: rgb(238, 234, 232)!important;
+    color: #414040!important;
+  }
+  .cardTab .listCard .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+  }
+  .listCard .quantity span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #414040;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .listCard .quantity span i{
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  .listCard .quantity span:nth-child(2){
+    background-color: transparent;
+    color: #414040;
+  }
+  .listCard .item:nth-child(even){
+    background-color: #eee1;
+  }
+  .listCard{
+    overflow: auto;
+  }
+  .listCard::-webkit-scrollbar{
+    width: 0;
+  }
