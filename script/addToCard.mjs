@@ -3,12 +3,15 @@ import { url } from "./BaseUrl.mjs";
 import { shortenText } from "./shortenText.mjs";
 
 let posts = null;
+let cart = null;
 let details = document.querySelector(".details");
 const productId = new URLSearchParams(window.location.search).get("id");
-const iconCard = document.querySelector('.shopping-card');
-const close = document.querySelector('.close');
-const body = document.querySelector('body');
-const addCard = document.querySelector('.addCard');
+const iconCard = document.querySelector(".shopping-card");
+const close = document.querySelector(".close");
+const body = document.querySelector("body");
+const addCard = document.querySelector(".addCard");
+const listCrad = document.querySelector(".listCard");
+const iconCardSpan = document.querySelector(".icon-card span");
 
 const detailsProducts = (product) => {
   if (!product) {
@@ -33,25 +36,69 @@ const detailsProducts = (product) => {
     sizeElement.classList.add("size");
     sizeElement.style.cursor = "pointer";
     sizeElement.addEventListener("click", () => {
-      document.querySelectorAll(".size").forEach((elemnt) => elemnt.classList.remove("selected-size"));
+      document
+        .querySelectorAll(".size")
+        .forEach((elemnt) => elemnt.classList.remove("selected-size"));
       sizeElement.classList.add("selected-size");
     });
     sizeCounter.appendChild(sizeElement);
   });
+};
 
+iconCard.addEventListener("click", () => {
+  body.classList.toggle("showCard");
+});
+close.addEventListener("click", () => {
+  body.classList.toggle("showCard");
+});
 
+addCard.addEventListener("click", () => {
+  const selectedSize = document.querySelector(".selected-size");
+  if (!selectedSize) {
+    alert("Please select a size before adding to card.");
+    return;
+  }
+  addTocard(productId);
+  body.classList.add("showCard");
+});
+
+const addTocard = (productId) => {
+  const positionProduct = productId;
+  const quantity = document.querySelector('.number');
+  if (!cart) {
+    cart = productId;
+  }else 
+  if (!positionProduct){
+    cart.push.productId;
+  }
+  addCardHTML();
 
 };
 
-iconCard.addEventListener('click', () => {
-  body.classList.toggle('showCard')
+const addCardHTML = () => {
+  listCrad.innerHTML = '';
+  if (cart){
+    cart.forEach(cart =>{
+      const newCard = document.createComment('div');
+      newCard.classList.add('item');
+      newCard.innerHTML = `
+      <div class="image"></div>
+              <div class="name"></div>
+              <div class="totalPrice"></div>
+              <div class="quantity">
+                <span class="delete"
+                  ><i class="fa-regular fa-trash-can"></i
+                ></span>
+                <span class="number">0</span>
+                <span class="plus"><i class="fa-solid fa-plus"></i></span>
+              </div>
+            </div>
+      `;
+listCrad.appendChild(newCard);
+    })
+  }
+}
 
-});
-close.addEventListener('click', ()=>{
-  body.classList.toggle('showCard')
-});
-
-const addToCard = (e)
 
 
 
@@ -79,7 +126,3 @@ async function main() {
   }
 }
 main();
-
-addCard.addEventListener('click', addToCard)
-
-
