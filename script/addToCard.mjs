@@ -3,14 +3,15 @@ import { url } from "./BaseUrl.mjs";
 import { shortenText } from "./shortenText.mjs";
 
 let posts = null;
-let cart = null;
+// let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
 let details = document.querySelector(".details");
 const productId = new URLSearchParams(window.location.search).get("id");
 const iconCard = document.querySelector(".shopping-card");
 const close = document.querySelector(".close");
 const body = document.querySelector("body");
 const addCard = document.querySelector(".addCard");
-const listCrad = document.querySelector(".listCard");
+const listCard = document.querySelector(".listCard");
 const iconCardSpan = document.querySelector(".icon-card span");
 
 const detailsProducts = (product) => {
@@ -46,58 +47,98 @@ const detailsProducts = (product) => {
 };
 
 iconCard.addEventListener("click", () => {
-  body.classList.toggle("showCard");
+ updateCartDisplay();
 });
+
 close.addEventListener("click", () => {
   body.classList.toggle("showCard");
 });
 
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateLocalStorage() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+
+
 addCard.addEventListener("click", () => {
-  const selectedSize = document.querySelector(".selected-size");
-  if (!selectedSize) {
-    alert("Please select a size before adding to card.");
-    return;
+  if (posts) {
+    const selectedProduct = posts.find((product) => product.id == productId);
+    addToCard(selectedProduct);
+    updateCartDisplay();
   }
-  addTocard(productId);
-  body.classList.add("showCard");
 });
 
-const addTocard = (productId) => {
-  const positionProduct = productId;
-  const quantity = document.querySelector('.number');
-  if (!cart) {
-    cart = productId;
-  }else 
-  if (!positionProduct){
-    cart.push.productId;
-  }
-  addCardHTML();
-
-};
-
-const addCardHTML = () => {
-  listCrad.innerHTML = '';
-  if (cart){
-    cart.forEach(cart =>{
-      const newCard = document.createComment('div');
-      newCard.classList.add('item');
-      newCard.innerHTML = `
-      <div class="image"></div>
-              <div class="name"></div>
-              <div class="totalPrice"></div>
-              <div class="quantity">
-                <span class="delete"
-                  ><i class="fa-regular fa-trash-can"></i
-                ></span>
-                <span class="number">0</span>
-                <span class="plus"><i class="fa-solid fa-plus"></i></span>
-              </div>
-            </div>
-      `;
-listCrad.appendChild(newCard);
-    })
-  }
+function addToCard(product) {
+  cart.push(product); 
+  updateCartDisplay();
+  updateLocalStorage();
+  // console.log(product)
 }
+
+function updateCartDisplay() {
+  listCard.innerHTML = "";
+  let totalPrice = 0;
+  cart.forEach((product) => {
+   
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("item");
+
+ 
+    const imageDiv = document.createElement("div");
+    imageDiv.classList.add("image");
+    const productImage = document.createElement("img");
+    productImage.src = product.image;
+    imageDiv.appendChild(productImage);
+    itemDiv.appendChild(imageDiv);
+
+    const nameDiv = document.createElement("div");
+    nameDiv.classList.add("name");
+    nameDiv.textContent = product.title;
+    itemDiv.appendChild(nameDiv);
+
+    const PriceDiv = document.createElement("div");
+    PriceDiv.classList.add("Price");
+    PriceDiv.textContent = "NOK " + product.price;
+    itemDiv.appendChild(PriceDiv);
+  
+    const quantityDiv = document.createElement("div");
+    quantityDiv.classList.add("quantity");
+
+    const deleteSpan = document.createElement("span");
+    deleteSpan.classList.add("delete");
+    deleteSpan.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+    quantityDiv.appendChild(deleteSpan);
+    
+    const numberSpan = document.createElement("span");
+    numberSpan.classList.add("number");
+    numberSpan.textContent = "1"; 
+    quantityDiv.appendChild(numberSpan);
+    
+    const plusSpan = document.createElement("span");
+    plusSpan.classList.add("plus");
+    plusSpan.innerHTML = '<i class="fa-solid fa-plus"></i>';
+    quantityDiv.appendChild(plusSpan);
+
+  
+
+    totalPrice +=product.price;
+    itemDiv.appendChild(quantityDiv);
+    listCard.appendChild(itemDiv);
+  });
+
+  const totalPriceDiv = document.createElement("div");
+  totalPriceDiv.classList.add("totalPrice");
+  totalPriceDiv.textContent = "Total Price: NOK " + totalPrice;
+  listCard.appendChild(totalPriceDiv);
+  
+  body.classList.toggle('showCard');
+}
+
+
+
 
 
 
@@ -114,11 +155,12 @@ async function doFetch(url) {
 }
 
 async function main() {
+
   try {
     posts = await doFetch(url);
-    console.log(posts);
+    // console.log(posts);
     const thisProduct = posts.find((value) => value.id == productId);
-    console.log(thisProduct);
+    // console.log(thisProduct);
     detailsProducts(thisProduct);
   } catch (error) {
     console.log("Error fetching data:", error);
@@ -126,3 +168,4 @@ async function main() {
   }
 }
 main();
+

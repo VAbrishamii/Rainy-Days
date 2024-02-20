@@ -1,9 +1,7 @@
 import { shortenText } from "./shortenText.mjs";
 import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
-import { burgerIcon,crossIcon,burgerMenu } from "./showburgerMenu.mjs";
+import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
-
-
 
 let posts = null;
 
@@ -38,6 +36,20 @@ const showProducts = (products) => {
     mainContent.innerHTML += jsx;
   });
 };
+
+mainContent.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn")) {
+    addTocard(posts);
+  }
+});
+
+
+
+function addTocard(posts) {
+  console.log(posts);
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  console.log(cart);
+}
 
 async function doFetch(url) {
   try {
@@ -102,6 +114,7 @@ const favoriteHandler = (e) => {
   }
   showProducts(posts);
 };
+
 main();
 
 searchIcon.addEventListener("click", searchHandler);

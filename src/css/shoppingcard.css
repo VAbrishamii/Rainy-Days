@@ -7,6 +7,10 @@
     display: grid;
     grid-template-rows: 70px 1fr 70px;
     transition: transform 3s;
+   
+  }
+  .item{
+    margin-top: 15px;
   }
   .showCard .cardTab{
     inset: 0 0 0 auto;
@@ -71,4 +75,14 @@
   }
   .listCard::-webkit-scrollbar{
     width: 0;
+  }
+  .totalPrice{
+    border-top: 1px solid black;
+    margin-top: 5rem;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+
   }
