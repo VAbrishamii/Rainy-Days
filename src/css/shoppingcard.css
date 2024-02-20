@@ -74,7 +74,7 @@
     overflow: auto;
   }
   .listCard::-webkit-scrollbar{
-    width: 0;
+    width: 0px;
   }
   .totalPrice{
     border-top: 1px solid black;

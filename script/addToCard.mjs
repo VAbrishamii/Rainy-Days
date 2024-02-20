@@ -3,7 +3,6 @@ import { url } from "./BaseUrl.mjs";
 import { shortenText } from "./shortenText.mjs";
 
 let posts = null;
-// let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 let details = document.querySelector(".details");
 const productId = new URLSearchParams(window.location.search).get("id");
@@ -13,6 +12,7 @@ const body = document.querySelector("body");
 const addCard = document.querySelector(".addCard");
 const listCard = document.querySelector(".listCard");
 const iconCardSpan = document.querySelector(".icon-card span");
+// const checkoutButton = document.getElementById('checkout-button');
 
 const detailsProducts = (product) => {
   if (!product) {
@@ -47,7 +47,7 @@ const detailsProducts = (product) => {
 };
 
 iconCard.addEventListener("click", () => {
- updateCartDisplay();
+  body.classList.toggle("showCard");
 });
 
 close.addEventListener("click", () => {
@@ -66,8 +66,15 @@ function updateLocalStorage() {
 addCard.addEventListener("click", () => {
   if (posts) {
     const selectedProduct = posts.find((product) => product.id == productId);
-    addToCard(selectedProduct);
+    const existingProductIndex = cart.findIndex((item) => item.id == selectedProduct.id);
+    if(existingProductIndex != -1){
+      cart[existingProductIndex].quantity++;
+    }else{
+      selectedProduct.quantity = 1;
+      cart.push(selectedProduct);
+    }
     updateCartDisplay();
+    updateLocalStorage();
   }
 });
 
@@ -75,13 +82,14 @@ function addToCard(product) {
   cart.push(product); 
   updateCartDisplay();
   updateLocalStorage();
-  // console.log(product)
+
 }
 
 function updateCartDisplay() {
   listCard.innerHTML = "";
   let totalPrice = 0;
-  cart.forEach((product) => {
+  let totalProduct = 0;
+  cart.forEach((product , index) => {
    
     const itemDiv = document.createElement("div");
     itemDiv.classList.add("item");
@@ -95,12 +103,10 @@ function updateCartDisplay() {
     itemDiv.appendChild(imageDiv);
 
     const nameDiv = document.createElement("div");
-    nameDiv.classList.add("name");
     nameDiv.textContent = product.title;
     itemDiv.appendChild(nameDiv);
 
     const PriceDiv = document.createElement("div");
-    PriceDiv.classList.add("Price");
     PriceDiv.textContent = "NOK " + product.price;
     itemDiv.appendChild(PriceDiv);
   
@@ -110,32 +116,65 @@ function updateCartDisplay() {
     const deleteSpan = document.createElement("span");
     deleteSpan.classList.add("delete");
     deleteSpan.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+    deleteSpan.addEventListener('click', () => {
+      if (cart[index].quantity && cart[index].quantity > 1){
+        cart[index].quantity--;
+      }else{
+        cart.splice(index, 1);
+      }
+      updateCartDisplay();
+      updateLocalStorage();
+    })
     quantityDiv.appendChild(deleteSpan);
     
     const numberSpan = document.createElement("span");
     numberSpan.classList.add("number");
-    numberSpan.textContent = "1"; 
+    numberSpan.textContent = product.quantity; 
     quantityDiv.appendChild(numberSpan);
     
     const plusSpan = document.createElement("span");
     plusSpan.classList.add("plus");
     plusSpan.innerHTML = '<i class="fa-solid fa-plus"></i>';
+    plusSpan.addEventListener("click", () => {
+     if(cart[index].quantity){
+      cart[index].quantity++;
+     }else{
+      cart[index].quantity = 2 ;
+     }
+      updateCartDisplay(); 
+      updateLocalStorage();
+    });
     quantityDiv.appendChild(plusSpan);
 
   
 
-    totalPrice +=product.price;
+    totalPrice += product.price * (product.quantity || 1);
+    totalProduct += product.quantity || 1;
     itemDiv.appendChild(quantityDiv);
     listCard.appendChild(itemDiv);
   });
 
   const totalPriceDiv = document.createElement("div");
   totalPriceDiv.classList.add("totalPrice");
-  totalPriceDiv.textContent = "Total Price: NOK " + totalPrice;
+  totalPriceDiv.textContent = "Total Price: NOK " + totalPrice.toFixed(2);
   listCard.appendChild(totalPriceDiv);
   
-  body.classList.toggle('showCard');
+
+  const productCounter = document.querySelector('.counter');
+  productCounter.textContent = totalProduct;
+
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const checkoutButton = document.getElementById("checkOut-button");
+  if (checkoutButton) {
+    checkoutButton.addEventListener("click", function() {
+      window.location.href = "checkout.html";
+    });
+  } else {
+    console.error("Checkout button not found!");
+  }
+});
 
 
 
