@@ -1,3 +1,5 @@
+import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
+import { pageLoading } from "./loader.mjs";
 
 const backButton = document.querySelector("#back-button");
 const confirmButton = document.querySelector("#confirm-button");
@@ -34,7 +36,7 @@ document.addEventListener( "DOMContentLoaded", function() {
     });
     const totalPriceDiv =document.createElement('div');
     totalPriceDiv.classList.add('totalPrice');
-    totalPriceDiv.textContent = `Total Price: NOK ${totalPrice.toFixed(2)}`;
+    totalPriceDiv.textContent = `Total: NOK ${totalPrice.toFixed(2)}`;
     checkOutInfo.appendChild(totalPriceDiv);
 
   }

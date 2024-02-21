@@ -2,6 +2,7 @@ import { shortenText } from "./shortenText.mjs";
 import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
 import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
+import { pageLoading } from "./loader.mjs";
 
 let posts = null;
 

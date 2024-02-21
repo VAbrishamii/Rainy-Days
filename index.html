@@ -7,6 +7,7 @@
       name="description"
       content="waterproof rainy jacket which is made in rainydays on norway" />
     <link rel="stylesheet" href="src/css/home.css" />
+    <!-- <link rel="stylesheet" href="src/css/Navbar.css"> -->
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/shoppingcard.css" />
     <link rel="stylesheet" href="src/css/Card.css" />
@@ -20,6 +21,9 @@
   </head>
   <!-- --------------------------------------------------------Header------------------------------- -->
   <body>
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
     <header>
       <div class="header">
         <nav>
@@ -45,8 +49,8 @@
               </li>
               <li>
                 <a href="./addtocard.html">
-                  <i class="fa-solid fa-bag-shopping shopping-card">
-                    <span class="counter">0</span>
+                  <i class="fa-solid fa-bag-shopping ">
+               
                   </i>
                 </a>
               </li>
@@ -57,7 +61,12 @@
           </div>
           <!-- //-------------------------------------burger-menu---------------------------// -->
           <div class="burger">
-            <i class="fa-solid fa-bars burger"></i>
+            <a href="./addtocard.html">
+              <i class="fa-solid fa-bag-shopping shopping-card">
+                <span class="counter">0</span>
+              </i>
+              <i class="fa-solid fa-bars burger"></i>
+            </a>
           </div>
 
           <div class="burger-menu">
@@ -79,6 +88,9 @@
         <!-- //-------------------------------------Cover---------------------------// -->
         <div class="slang">
           <p>Unlock the Outdoors, Embrace the Rain</p>
+
+          <!-- <img src="assets/images/Image/cover.jpg" alt="cover">
+          <p>Unlock the Outdoors, Embrace the Rain</p> -->
           <div class="botton">
             <form action="./woman.html">
               <button class="btn">MEN</button>

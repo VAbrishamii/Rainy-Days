@@ -1,6 +1,7 @@
-import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
+// import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 import { shortenText } from "./shortenText.mjs";
+import { pageLoading } from "./loader.mjs";
 
 
 //product details

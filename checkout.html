@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="src/css/checkout.css" />
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/Navbar.css" />
+    <link rel="stylesheet" href="src/css/loading.css">
     <link rel="stylesheet" href="src/css/Footer.css" />
     <link
       rel="stylesheet"
@@ -19,6 +20,9 @@
   </head>
   <body>
     <!-- //-------------------------------------Navbar----------------------------// -->
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
     <header>
       <div class="header">
         <nav>
@@ -46,6 +50,10 @@
 
           <!-- //-------------------------------------burger-menu---------------------------// -->
           <div class="burger">
+            <a href="./addtocard.html">
+              <!-- <i class="fa-solid fa-bag-shopping shopping-card">
+                <span class="counter">0</span>
+              </i> -->
             <i class="fa-solid fa-bars burger"></i>
           </div>
 
@@ -69,6 +77,7 @@
     </header>
     <!-- //-------------------------------------Main---------------------------// -->
     <main>
+    
       <div class="checkout-container">
       <div id="checkout-info"></div>
       <!-- //-------------------------------------Form---------------------------// -->

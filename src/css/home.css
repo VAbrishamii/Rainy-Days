@@ -94,7 +94,7 @@ li {
   padding: 15px;
   margin-right: 5px;
   width: 350px;
-}
+} 
 
 /* ------------------------------------burger------------------------------------------*/
 .burger {
@@ -132,11 +132,11 @@ li {
 }
 .show-burger-menu {
   display: block;
-}
+} 
 
 /* ------------------------------------Cover------------------------------------------*/
 .slang {
-  position: relative;
+  /* position: relative; */
   font-size: 2.3rem;
   text-align: center;
   min-width: 100%;
@@ -144,11 +144,14 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+ 
 }
+
 
 .slang p {
   padding: 35px;
   margin: 30px;
+  position: absolute;
 }
 .botton {
   position: absolute;

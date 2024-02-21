@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="src/css/Footer.css" />
     <link rel="stylesheet" href="src/css/Card.css" />
     <link rel="stylesheet" href="src/css/shoppingcard.css" />
+    <link rel="stylesheet" href="src/css/loading.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -21,6 +22,9 @@
   </head>
   <body >
     <!-- //-------------------------------------Navbar----------------------------// -->
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
     <header>
       <div class="header">
         <nav>
@@ -52,6 +56,10 @@
 
           <!-- //-------------------------------------burger-menu---------------------------// -->
           <div class="burger">
+            <a href="./checkout.html">
+              <i class="fa-solid fa-bag-shopping shopping-card burger">
+                <span class="counter">0</span>
+              </i>
             <i class="fa-solid fa-bars burger"></i>
           </div>
 
@@ -71,10 +79,11 @@
             </div>
           </div>
         </nav>
-      </div>
+      </div> 
     </header>
     <!-- //-------------------------------------Add to card Slider---------------------------// -->
     <main>
+    
       <div class="title">PRODUCT DETAILS</div>
       <div class="maincontainer">
         <div class="details">
@@ -159,5 +168,18 @@
         </div>
       </div>
     </footer>
+    <script>
+      const burgerIcon = document.querySelector(".fa-bars");
+      const crossIcon = document.querySelector(".fa-xmark");
+      const burgerMenu = document.querySelector(".burger-menu");
+
+      burgerIcon.addEventListener("click", function () {
+        burgerMenu.classList.add("show-burger-menu");
+      });
+
+      crossIcon.addEventListener("click", function () {
+        burgerMenu.classList.remove("show-burger-menu");
+      });
+    </script>
   </body>
 </html>
