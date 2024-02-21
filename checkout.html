@@ -14,6 +14,8 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <script defer type="module" src="script/checkOut.mjs"></script>
+    <script defer type="module" src="script/addToCard.mjs"></script>
   </head>
   <body>
     <!-- //-------------------------------------Navbar----------------------------// -->
@@ -37,7 +39,7 @@
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
               </li>
-              <li><i class="fa-solid fa-bag-shopping"></i></li>
+              <li><i class="fa-solid fa-bag-shopping shopping-card"></i></li>
               <li><i class="fa-solid fa-user"></i></li>
             </ul>
           </div>
@@ -67,31 +69,8 @@
     </header>
     <!-- //-------------------------------------Main---------------------------// -->
     <main>
-      <div class="order">
-        <div class="step">
-          <h1>Shipping</h1>
-          <p class="active">1</p>
-        </div>
-        <div class="step">
-          <h1>Payment</h1>
-          <p>2</p>
-        </div>
-        <div class="step">
-          <h1>Order Review</h1>
-          <p>3</p>
-        </div>
-      </div>
-      <div class="product-order">
-        <div class="product">
-          <img src="./assets/images/Image/product-3.top.jpg" alt="product-3" />
-          <ul>
-            <li>Orange Training Jacket</li>
-            <li>Size: M</li>
-            <li>Number: 1</li>
-            <li>1,350 NOK</li>
-          </ul>
-        </div>
-      </div>
+      <div class="checkout-container">
+      <div id="checkout-info"></div>
       <!-- //-------------------------------------Form---------------------------// -->
       <div class="form">
         <form action="#">
@@ -128,26 +107,10 @@
           </div>
         </form>
       </div>
-      <!-- //-------------------------------------Policy---------------------------// -->
-      <div class="checkbox">
-        <div class="policy">
-          <label for="check">
-            <input type="checkbox" name="check" id="check" />
-          </label>
-          <p>I accept privacy and policy</p>
-        </div>
-        <div class="gift">
-          <label for="chek">
-            <input type="checkbox" name="checkbox" id="chek" />
-          </label>
-          <i class="fa-solid fa-gift"></i>
-          <p>
-            Order includes Gifts . The packing slip include with your order will
-            not display price
-          </p>
-        </div>
+     
+   
         <!-- //-------------------------------------Payment method---------------------------// -->
-        <h3>Payment Method</h3>
+        <!-- <h3>Payment Method</h3>
         <div class="payment">
           <div class="paypal">
             <div class="content">
@@ -181,17 +144,13 @@
               <img src="./assets/images/Image/master.png" alt="master" />
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="buttom">
-        <form action="./addtocard.html">
-          <button>Back</button>
-        </form>
-
-        <form action="./checkoutsuccess.html">
-          <button>Confirm</button>
-        </form>
-      </div>
+          <button id="back-button">Back</button>
+          <button id="confirm-button">Confirm</button>
+      </div> 
+    </div>
     </main>
     <!-- //-------------------------------------Footer---------------------------// -->
     <footer>
@@ -244,18 +203,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      const burgerIcon = document.querySelector(".fa-bars");
-      const crossIcon = document.querySelector(".fa-xmark");
-      const burgerMenu = document.querySelector(".burger-menu");
-
-      burgerIcon.addEventListener("click", function () {
-        burgerMenu.classList.add("show-burger-menu");
-      });
-
-      crossIcon.addEventListener("click", function () {
-        burgerMenu.classList.remove("show-burger-menu");
-      });
-    </script>
+  
   </body>
 </html>

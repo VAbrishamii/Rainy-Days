@@ -64,6 +64,8 @@ h1{
 }
 .btn{
   font-size: 1.5vw;
+  padding: 40px!important;
+
 }
 .btn i{
   margin-right: 10px;

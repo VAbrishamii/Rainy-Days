@@ -2,6 +2,8 @@ import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 import { shortenText } from "./shortenText.mjs";
 
+
+//product details
 let posts = null;
 
 let details = document.querySelector(".details");
@@ -46,13 +48,9 @@ const detailsProducts = (product) => {
   });
 };
 
-iconCard.addEventListener("click", () => {
-  body.classList.toggle("showCard");
-});
 
-close.addEventListener("click", () => {
-  body.classList.toggle("showCard");
-});
+
+//card list
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -61,9 +59,8 @@ function updateLocalStorage() {
 }
 
 
-
-
 addCard.addEventListener("click", () => {
+  console.log(productId)
   if (posts) {
     const selectedProduct = posts.find((product) => product.id == productId);
     const existingProductIndex = cart.findIndex((item) => item.id == selectedProduct.id);
@@ -146,8 +143,6 @@ function updateCartDisplay() {
     });
     quantityDiv.appendChild(plusSpan);
 
-  
-
     totalPrice += product.price * (product.quantity || 1);
     totalProduct += product.quantity || 1;
     itemDiv.appendChild(quantityDiv);
@@ -165,10 +160,22 @@ function updateCartDisplay() {
 
 }
 
+
+iconCard.addEventListener("click", () => {
+  body.classList.toggle("showCard");
+});
+
+close.addEventListener("click", () => {
+  body.classList.toggle("showCard");
+});
+
+
+//click checkout button and go to checkout page
 document.addEventListener("DOMContentLoaded", function() {
   const checkoutButton = document.getElementById("checkOut-button");
   if (checkoutButton) {
     checkoutButton.addEventListener("click", function() {
+      localStorage.setItem('cart', JSON.stringify(cart));
       window.location.href = "checkout.html";
     });
   } else {
@@ -176,12 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-
-
-
-
-
-
+//fetching 
 async function doFetch(url) {
   try {
     const response = await fetch(url);
@@ -206,5 +208,8 @@ async function main() {
     alert("An error ocuured! Please try again");
   }
 }
+
+
+
 main();
 
