@@ -12,7 +12,7 @@ const body = document.querySelector("body");
 const addCard = document.querySelector(".addCard");
 const listCard = document.querySelector(".listCard");
 const iconCardSpan = document.querySelector(".icon-card span");
-// const checkoutButton = document.getElementById('checkout-button');
+
 
 const detailsProducts = (product) => {
   if (!product) {
