@@ -60,7 +60,7 @@ function updateLocalStorage() {
 }
 
 
-addCard.addEventListener("click", () => {
+function addProductToCard(productId){
   console.log(productId)
   if (posts) {
     const selectedProduct = posts.find((product) => product.id == productId);
@@ -74,7 +74,8 @@ addCard.addEventListener("click", () => {
     updateCartDisplay();
     updateLocalStorage();
   }
-});
+};
+addCard.addEventListener('click', ()=> addProductToCard(productId));
 
 function addToCard(product) {
   cart.push(product); 
@@ -205,6 +206,7 @@ async function main() {
   try {
     posts = await doFetch(url);
     pageLoading();
+    updateCartDisplay();
     const thisProduct = posts.find((value) => value.id == productId);
     detailsProducts(thisProduct);
   } catch (error) {
@@ -216,4 +218,6 @@ async function main() {
 
 
 main();
+
+
 

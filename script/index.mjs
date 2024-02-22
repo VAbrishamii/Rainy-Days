@@ -3,6 +3,8 @@ import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
 import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 import { pageLoading } from "./loader.mjs";
+// import { addProductToCard } from "./addToCard.mjs";
+
 
 
 let posts = null;
@@ -13,7 +15,9 @@ const inputBox = document.getElementById("search");
 const filteredproduct = document.querySelectorAll(".genders li");
 const saleProducts = document.querySelector(".sale");
 const favoriteProducts = document.querySelector(".favorite");
-const buyProduct = document.getElementById('addCard');
+const menButton = document.querySelector('.men-button');
+const womenButton = document.querySelector('.women-button');
+// const buyProduct = document.getElementById('addCard');
 
 
 const showProducts = (products) => {
@@ -32,7 +36,7 @@ const showProducts = (products) => {
       <h2>${product.title}</h2>
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
-       <button class='btn' id='addCard'> BUY </button>
+       <button class='btn addCard' > BUY </button>
        </div>
     </a>
 
@@ -44,10 +48,13 @@ const showProducts = (products) => {
 
 mainContent.addEventListener ('click', (e)=> {
  if(e.target.classList.contains('btn')){
-  addTocard(posts)
+  addProductToCard(posts)
  }
 });
  
+
+
+
 
 // search product
 const searchHandler = () => {
@@ -77,6 +84,15 @@ const filteredHander = (e) => {
   showProducts(filterPosts);
 };
 filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
+// Event listener for the men button
+menButton.addEventListener('click', () => {
+  filteredHander('men');
+});
+
+// Event listener for the women button
+womenButton.addEventListener('click', () => {
+  filteredHander('women');
+});
 
 //show onSale product
 const saleHandler = (e) => {
@@ -125,11 +141,9 @@ async function main() {
   showProducts(posts);
 
 
+
 }
 
 main();
 
-// searchIcon.addEventListener("click", searchHandler);
-// filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
-// saleProducts.addEventListener("click", saleHandler);
-// favoriteProducts.addEventListener("click", favoriteHandler);
+
