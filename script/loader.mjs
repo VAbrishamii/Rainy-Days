@@ -1,4 +1,4 @@
 export function pageLoading() {
     const spinner = document.getElementById('loading');
-    spinner.classList.add('loader');
+    spinner.classList.add('loaded');
   }

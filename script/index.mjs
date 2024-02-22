@@ -4,6 +4,7 @@ import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 import { pageLoading } from "./loader.mjs";
 
+
 let posts = null;
 
 const mainContent = document.getElementById("products");
@@ -12,6 +13,8 @@ const inputBox = document.getElementById("search");
 const filteredproduct = document.querySelectorAll(".genders li");
 const saleProducts = document.querySelector(".sale");
 const favoriteProducts = document.querySelector(".favorite");
+const buyProduct = document.getElementById('addCard');
+
 
 const showProducts = (products) => {
   mainContent.innerHTML = "";
@@ -29,7 +32,7 @@ const showProducts = (products) => {
       <h2>${product.title}</h2>
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
-       <button class='btn'> BUY </button>
+       <button class='btn' id='addCard'> BUY </button>
        </div>
     </a>
 
@@ -38,19 +41,72 @@ const showProducts = (products) => {
   });
 };
 
-mainContent.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn")) {
-    addTocard(posts);
-  }
+
+mainContent.addEventListener ('click', (e)=> {
+ if(e.target.classList.contains('btn')){
+  addTocard(posts)
+ }
 });
+ 
+
+// search product
+const searchHandler = () => {
+  const query = inputBox.value.trim().toLowerCase();
+  if (!query) {
+    showProducts(posts);
+    return;
+  }
+  const searchProducts = posts.filter((product) =>
+    product.description.toLowerCase().includes(query)
+  );
+  showProducts(searchProducts);
+};
+searchIcon.addEventListener("click", searchHandler);
+
+//filter by gender
+const filteredHander = (e) => {
+  const selectedOption = e.target.innerText.toLowerCase();
+
+  if (selectedOption === "all") {
+    showProducts(posts);
+    return;
+  }
+  const filterPosts = posts.filter(
+    (product) => product.gender.toLowerCase() === selectedOption
+  );
+  showProducts(filterPosts);
+};
+filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
+
+//show onSale product
+const saleHandler = (e) => {
+  const saleOptions = e.target.innerText.toLowerCase();
+  const saleFilter = posts.filter((product) => product.onSale === true);
+
+  if (saleFilter) {
+    showProducts(saleFilter);
+    return;
+  }
+
+  showProducts(posts);
+};
+saleProducts.addEventListener("click", saleHandler);
+
+//show favorite product
+const favoriteHandler = (e) => {
+  const favoriteOptions = e.target.innerText.toLowerCase();
+  const favoriteFilter = posts.filter((product) => product.favorite === true);
+  if (favoriteFilter) {
+    showProducts(favoriteFilter);
+    return;
+  }
+  showProducts(posts);
+};
+favoriteProducts.addEventListener("click", favoriteHandler);
 
 
 
-function addTocard(posts) {
-  console.log(posts);
-  const cart = JSON.parse(localStorage.getItem("cart"));
-  console.log(cart);
-}
+
 
 async function doFetch(url) {
   try {
@@ -65,60 +121,15 @@ async function doFetch(url) {
 
 async function main() {
   posts = await doFetch(url);
+  pageLoading();
   showProducts(posts);
+
+
 }
-
-const searchHandler = () => {
-  const query = inputBox.value.trim().toLowerCase();
-
-  if (!query) {
-    showProducts(posts);
-    return;
-  }
-  const searchProducts = posts.filter((product) =>
-    product.description.toLowerCase().includs(query)
-  );
-  showProducts(searchProducts);
-};
-
-const filteredHander = (e) => {
-  const selectedOption = e.target.innerText.toLowerCase();
-
-  if (selectedOption === "all") {
-    showProducts(posts);
-    return;
-  }
-  const filterPosts = posts.filter(
-    (product) => product.gender.toLowerCase() === selectedOption
-  );
-  showProducts(filterPosts);
-};
-
-const saleHandler = (e) => {
-  const saleOptions = e.target.innerText.toLowerCase();
-  const saleFilter = posts.filter((product) => product.onSale === true);
-
-  if (saleFilter) {
-    showProducts(saleFilter);
-    return;
-  }
-
-  showProducts(posts);
-};
-
-const favoriteHandler = (e) => {
-  const favoriteOptions = e.target.innerText.toLowerCase();
-  const favoriteFilter = posts.filter((product) => product.favorite === true);
-  if (favoriteFilter) {
-    showProducts(favoriteFilter);
-    return;
-  }
-  showProducts(posts);
-};
 
 main();
 
-searchIcon.addEventListener("click", searchHandler);
-filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
-saleProducts.addEventListener("click", saleHandler);
-favoriteProducts.addEventListener("click", favoriteHandler);
+// searchIcon.addEventListener("click", searchHandler);
+// filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
+// saleProducts.addEventListener("click", saleHandler);
+// favoriteProducts.addEventListener("click", favoriteHandler);

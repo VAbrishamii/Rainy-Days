@@ -1,5 +1,6 @@
 import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { pageLoading } from "./loader.mjs";
+// import { updateCartDisplay } from "./addToCard.mjs";
 
 const backButton = document.querySelector("#back-button");
 const confirmButton = document.querySelector("#confirm-button");
@@ -53,3 +54,7 @@ document.addEventListener( "DOMContentLoaded", function() {
     event.preventDefault(); 
     window.location.href = "./checkoutsuccess.html";
   });
+
+  pageLoading();
+  // updateCartDisplay();
+

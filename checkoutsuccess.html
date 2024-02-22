@@ -26,7 +26,6 @@
               <li><a href="./index.html">Home</a></li>
               <li><a href="./woman.html">Women</a></li>
               <li><a href="./woman.html">Men</a></li>
-              <li><a href="./Woman.html">Kid</a></li>
               <li><a href="./about.html">About</a></li>
               <li><a href="./contact.html">Contact</a></li>
             </ul>
@@ -56,7 +55,6 @@
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./woman.html">Women</a></li>
                 <li><a href="./woman.html">Men</a></li>
-                <li><a href="./Woman.html">Kid</a></li>
                 <li><a href="./about.html">About</a></li>
                 <li><a href="./contact.html">Contact</a></li>
               </ul>
@@ -149,6 +147,22 @@
         </div>
       </div>
     </footer>
+    <script>
+      const burgerIcon = document.querySelector(".fa-bars");
+      const crossIcon = document.querySelector(".fa-xmark");
+      const burgerMenu = document.querySelector(".burger-menu");
+
+      burgerIcon.addEventListener("click", function (event) {
+        event.preventDefault();
+        burgerMenu.classList.add("show-burger-menu");
+      });
+
+      crossIcon.addEventListener("click", function (event) {
+        event.preventDefault();
+        burgerMenu.classList.remove("show-burger-menu");
+      });
+      
+    </script>
   
   </body>
 </html>

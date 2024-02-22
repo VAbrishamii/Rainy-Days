@@ -1,4 +1,4 @@
-// import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
+import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 import { shortenText } from "./shortenText.mjs";
 import { pageLoading } from "./loader.mjs";
@@ -78,8 +78,10 @@ addCard.addEventListener("click", () => {
 
 function addToCard(product) {
   cart.push(product); 
+
   updateCartDisplay();
   updateLocalStorage();
+
 
 }
 
@@ -157,9 +159,10 @@ function updateCartDisplay() {
   
 
   const productCounter = document.querySelector('.counter');
-  productCounter.textContent = totalProduct;
-
+    productCounter.textContent = totalProduct;
 }
+
+
 
 
 iconCard.addEventListener("click", () => {
@@ -184,7 +187,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-//fetching 
+
+//fetching data
 async function doFetch(url) {
   try {
     const response = await fetch(url);
@@ -200,9 +204,8 @@ async function main() {
 
   try {
     posts = await doFetch(url);
-    // console.log(posts);
+    pageLoading();
     const thisProduct = posts.find((value) => value.id == productId);
-    // console.log(thisProduct);
     detailsProducts(thisProduct);
   } catch (error) {
     console.log("Error fetching data:", error);
