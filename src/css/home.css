@@ -26,7 +26,7 @@ nav {
   justify-content: space-between;
   width: 100%;
   position: absolute;
-  z-index: 1;
+  z-index: 999;
 }
 
 nav img {
@@ -135,8 +135,9 @@ li {
 } 
 
 /* ------------------------------------Cover------------------------------------------*/
+
 .slang {
-  position: relative;
+  position: absolute;
   font-size: 2.3rem;
   text-align: center;
   min-width: 100%;
