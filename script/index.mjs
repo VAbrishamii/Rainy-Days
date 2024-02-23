@@ -6,8 +6,6 @@ import { pageLoading } from "./loader.mjs";
 
 // import{updateCartDisplay,updateLocalStorage,addProductToCard,addToCard} from "./addToCard.mjs"
 
-
-
 let posts = null;
 
 const mainContent = document.getElementById("products");
@@ -16,48 +14,42 @@ const inputBox = document.getElementById("search");
 const filteredproduct = document.querySelectorAll(".genders li");
 const saleProducts = document.querySelector(".sale");
 const favoriteProducts = document.querySelector(".favorite");
-const menButton = document.querySelector('.men-button');
-const womenButton = document.querySelector('.women-button');
+const menButton = document.querySelector(".men-button");
+const womenButton = document.querySelector(".women-button");
 
-
-
-
-const showProducts = (products) => {
+const showProducts = (products, gender) => {
   mainContent.innerHTML = "";
 
   products.forEach((product) => {
+    if (gender && product.gender !== gender) {
+      return;
+    }
     const favoriteColor = product.favorite ? "red" : "black";
 
     const jsx = `
     <a href='/addtocard.html?id=${product.id}' class='card'>
-   
      <div class='card-content' >
      <i  id='favorite' class="fa-regular fa-heart" style='color: ${favoriteColor}' ></i>
-   
       <img alt=${product.title} src="${product.image}" class='image'/>
       <h2>${product.title}</h2>
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
-      <button class='btn addCard' > BUY </button>
   
-       </div>
+      <button class='btn addCard' > BUY </button>
+    </div>
     </a>
-
     `;
     mainContent.innerHTML += jsx;
   });
 };
 
-
 //list card
 
-mainContent.addEventListener ('click', (e)=> {
- if(e.target.classList.contains('addCard')){
-  addProductToCard(productId);
- }
+mainContent.addEventListener("click", (e) => {
+  if (e.target.classList.contains("addCard")) {
+    addProductToCard(productId);
+  }
 });
- 
-
 
 
 
@@ -89,15 +81,19 @@ const filteredHander = (e) => {
   showProducts(filterPosts);
 };
 filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
-// Event listener for the men button
-menButton.addEventListener('click', () => {
-  filteredHander('men');
+
+womenButton.addEventListener("click", () => {
+  if (filteredPosts === "female");
+  window.location.href = "./woman.html";
+  showProducts(filteredPosts);
 });
 
-// Event listener for the women button
-womenButton.addEventListener('click', () => {
-  filteredHander('women');
+// Event listener for the men button
+menButton.addEventListener("click", () => {
+  filteredHander("men");
 });
+
+
 
 //show onSale product
 const saleHandler = (e) => {
@@ -125,10 +121,6 @@ const favoriteHandler = (e) => {
 };
 favoriteProducts.addEventListener("click", favoriteHandler);
 
-
-
-
-
 async function doFetch(url) {
   try {
     const response = await fetch(url);
@@ -144,9 +136,6 @@ async function main() {
   posts = await doFetch(url);
   pageLoading();
   showProducts(posts);
- 
 }
 
 main();
-
-

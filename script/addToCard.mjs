@@ -55,9 +55,18 @@ const detailsProducts = (product) => {
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-export function updateLocalStorage() {
-  localStorage.setItem('cart', JSON.stringify(cart));
+export async function updateLocalStorage() {
+  try {
+    await new Promise((resolve, reject) => {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      resolve();
+    });
+  } catch (error) {
+    console.error('Error updating cart data:', error);
+   
 }
+}
+
 
 
 export function addProductToCard(productId){
