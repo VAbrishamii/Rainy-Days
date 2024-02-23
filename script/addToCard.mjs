@@ -55,12 +55,12 @@ const detailsProducts = (product) => {
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function updateLocalStorage() {
+export function updateLocalStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 
-function addProductToCard(productId){
+export function addProductToCard(productId){
   console.log(productId)
   if (posts) {
     const selectedProduct = posts.find((product) => product.id == productId);
@@ -75,9 +75,9 @@ function addProductToCard(productId){
     updateLocalStorage();
   }
 };
-addCard.addEventListener('click', ()=> addProductToCard(productId));
 
-function addToCard(product) {
+
+export function addToCard(product) {
   cart.push(product); 
 
   updateCartDisplay();
@@ -86,7 +86,7 @@ function addToCard(product) {
 
 }
 
-function updateCartDisplay() {
+export function updateCartDisplay() {
   listCard.innerHTML = "";
   let totalPrice = 0;
   let totalProduct = 0;
@@ -164,6 +164,8 @@ function updateCartDisplay() {
 }
 
 
+  addCard.addEventListener('click', ()=> addProductToCard(productId));
+
 
 
 iconCard.addEventListener("click", () => {
@@ -206,7 +208,7 @@ async function main() {
   try {
     posts = await doFetch(url);
     pageLoading();
-    updateCartDisplay();
+    // updateCartDisplay();
     const thisProduct = posts.find((value) => value.id == productId);
     detailsProducts(thisProduct);
   } catch (error) {

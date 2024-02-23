@@ -3,7 +3,8 @@ import { optionMenu, selectBtn, options, btnText } from "./optionMenu.mjs";
 import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
 import { pageLoading } from "./loader.mjs";
-// import { addProductToCard } from "./addToCard.mjs";
+
+// import{updateCartDisplay,updateLocalStorage,addProductToCard,addToCard} from "./addToCard.mjs"
 
 
 
@@ -17,7 +18,8 @@ const saleProducts = document.querySelector(".sale");
 const favoriteProducts = document.querySelector(".favorite");
 const menButton = document.querySelector('.men-button');
 const womenButton = document.querySelector('.women-button');
-// const buyProduct = document.getElementById('addCard');
+
+
 
 
 const showProducts = (products) => {
@@ -36,7 +38,8 @@ const showProducts = (products) => {
       <h2>${product.title}</h2>
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
-       <button class='btn addCard' > BUY </button>
+      <button class='btn addCard' > BUY </button>
+  
        </div>
     </a>
 
@@ -46,9 +49,11 @@ const showProducts = (products) => {
 };
 
 
+//list card
+
 mainContent.addEventListener ('click', (e)=> {
- if(e.target.classList.contains('btn')){
-  addProductToCard(posts)
+ if(e.target.classList.contains('addCard')){
+  addProductToCard(productId);
  }
 });
  
@@ -139,9 +144,7 @@ async function main() {
   posts = await doFetch(url);
   pageLoading();
   showProducts(posts);
-
-
-
+ 
 }
 
 main();
