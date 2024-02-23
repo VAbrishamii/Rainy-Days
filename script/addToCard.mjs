@@ -208,7 +208,7 @@ async function main() {
   try {
     posts = await doFetch(url);
     pageLoading();
-    // updateCartDisplay();
+    updateCartDisplay();
     const thisProduct = posts.find((value) => value.id == productId);
     detailsProducts(thisProduct);
   } catch (error) {
