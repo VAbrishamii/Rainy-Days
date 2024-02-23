@@ -17,13 +17,11 @@ const favoriteProducts = document.querySelector(".favorite");
 const menButton = document.querySelector(".men-button");
 const womenButton = document.querySelector(".women-button");
 
-const showProducts = (products, gender) => {
+const showProducts = (products) => {
   mainContent.innerHTML = "";
 
   products.forEach((product) => {
-    if (gender && product.gender !== gender) {
-      return;
-    }
+   
     const favoriteColor = product.favorite ? "red" : "black";
 
     const jsx = `
@@ -35,7 +33,7 @@ const showProducts = (products, gender) => {
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
   
-      <button class='btn addCard' > BUY </button>
+      <button class='btn addCard' > More details </button>
     </div>
     </a>
     `;
@@ -68,30 +66,28 @@ const searchHandler = () => {
 searchIcon.addEventListener("click", searchHandler);
 
 //filter by gender
-const filteredHander = (e) => {
+
+const filteredHander = (e) => { 
   const selectedOption = e.target.innerText.toLowerCase();
 
   if (selectedOption === "all") {
     showProducts(posts);
     return;
   }
-  const filterPosts = posts.filter(
-    (product) => product.gender.toLowerCase() === selectedOption
-  );
+  const filterPosts = posts.filter((product) => product.gender.toLowerCase() === selectedOption);
   showProducts(filterPosts);
-};
+}
 filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
 
-womenButton.addEventListener("click", () => {
-  if (filteredPosts === "female");
-  window.location.href = "./woman.html";
-  showProducts(filteredPosts);
-});
 
-// Event listener for the men button
-menButton.addEventListener("click", () => {
-  filteredHander("men");
-});
+//go to the women page
+womenButton.addEventListener("click", async () => {
+  const posts = await doFetch(url);
+  const isWomen = posts.filter((product) => product.gender.toLowerCase());
+    window.location.href = "./woman.html";
+ localStorage.setItem('isWomen', JSON.stringify(isWomen));
+  });
+
 
 
 
@@ -136,6 +132,8 @@ async function main() {
   posts = await doFetch(url);
   pageLoading();
   showProducts(posts);
+
+  
 }
 
 main();
