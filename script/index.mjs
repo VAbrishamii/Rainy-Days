@@ -82,8 +82,7 @@ filteredproduct.forEach((li) => li.addEventListener("click", filteredHander));
 
 //go to the women page
 womenButton.addEventListener("click", async () => {
-  const posts = await doFetch(url);
-  const isWomen = posts.filter((product) => product.gender.toLowerCase());
+  const isWomen = posts.filter((product) => product.gender.toLowerCase()==='female');
     window.location.href = "./woman.html";
  localStorage.setItem('isWomen', JSON.stringify(isWomen));
   });
