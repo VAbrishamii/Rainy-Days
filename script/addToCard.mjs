@@ -63,6 +63,7 @@ export async function updateLocalStorage() {
     });
   } catch (error) {
     console.error('Error updating cart data:', error);
+    throw error;
    
 }
 }
@@ -87,7 +88,6 @@ export function addProductToCard(productId){
 
 export function addToCard(product) {
   cart.push(product); 
-
   updateCartDisplay();
   updateLocalStorage();
 
@@ -171,16 +171,23 @@ export function updateCartDisplay() {
     productCounter.textContent = totalProduct;
 }
 
+addCard.addEventListener('click', ()=> {
+addProductToCard(productId);
+updateCartDisplay();
+updateLocalStorage();
+});
 
 iconCard.addEventListener("click", () => {
+  console.log('click');
   body.classList.toggle("showCard");
 });
+
 
 close.addEventListener("click", () => {
   body.classList.toggle("showCard");
 });
 
-addCard.addEventListener('click', ()=> addProductToCard(productId));
+
 
 //click checkout button and go to checkout page
 document.addEventListener("DOMContentLoaded", function() {
@@ -216,6 +223,8 @@ async function main() {
     updateCartDisplay();
     const thisProduct = posts.find((value) => value.id == productId);
     detailsProducts(thisProduct);
+    updateLocalStorage();
+
   } catch (error) {
     console.log("Error fetching data:", error);
     alert("An error ocuured! Please try again");

@@ -20,6 +20,7 @@
 .product {
   width: 100%;
   display: flex;
+  justify-content: center;
   background-color: #fff;
   border: 1px solid black;
   padding: 5px;
@@ -47,8 +48,20 @@
 
 }
 .product-details p {
-  font-size: 10px;
+  font-size: 15px;
 }
+.product-details span{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #414040;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+
+}
+
 .totalPrice {
   /* width: 30%; */
   background-color: #353333;

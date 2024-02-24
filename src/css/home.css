@@ -148,7 +148,6 @@ li {
  
 }
 
-
 .slang p {
   padding: 35px;
   margin: 30px;
@@ -204,10 +203,9 @@ li {
 /*-----------------------------------------Responsive-------------------------*/
 
 @media (max-width: 768px) {
-  /* ------------Header-------------- */
-  /* h2 {
-      font-size: 3rem;
-    } */
+.shopping-card{
+  margin-top: 18px;
+}
 
   .container {
     display: none;
@@ -217,7 +215,9 @@ li {
     margin: 15px;
     font-size: 25px;
   }
-
+.slang{
+  font-size: 1rem;
+}
   .slang p {
     font-size: 15px;
     text-align: left;
@@ -225,8 +225,8 @@ li {
   }
 
   .botton .btn {
-    margin-bottom: 5px;
-    width: 80%;
+    margin-bottom: 20px;
+    width: 60%;
     margin-top: 7rem;
   }
 
