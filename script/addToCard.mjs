@@ -70,7 +70,6 @@ export async function updateLocalStorage() {
 
 
 export function addProductToCard(productId){
-  console.log(productId)
   if (posts) {
     const selectedProduct = posts.find((product) => product.id == productId);
     const existingProductIndex = cart.findIndex((item) => item.id == selectedProduct.id);
@@ -173,10 +172,6 @@ export function updateCartDisplay() {
 }
 
 
-  addCard.addEventListener('click', ()=> addProductToCard(productId));
-
-
-
 iconCard.addEventListener("click", () => {
   body.classList.toggle("showCard");
 });
@@ -185,6 +180,7 @@ close.addEventListener("click", () => {
   body.classList.toggle("showCard");
 });
 
+addCard.addEventListener('click', ()=> addProductToCard(productId));
 
 //click checkout button and go to checkout page
 document.addEventListener("DOMContentLoaded", function() {

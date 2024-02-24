@@ -14,7 +14,6 @@ const inputBox = document.getElementById("search");
 const filteredproduct = document.querySelectorAll(".genders li");
 const saleProducts = document.querySelector(".sale");
 const favoriteProducts = document.querySelector(".favorite");
-const menButton = document.querySelector(".men-button");
 const womenButton = document.querySelector(".women-button");
 
 const showProducts = (products) => {
@@ -28,14 +27,15 @@ const showProducts = (products) => {
     <a href='/addtocard.html?id=${product.id}' class='card'>
      <div class='card-content' >
      <i  id='favorite' class="fa-regular fa-heart" style='color: ${favoriteColor}' ></i>
-      <img alt=${product.title} src="${product.image}" class='image'/>
+      <img alt=${product.title} src="${product.image}" class='image'/> 
       <h2>${product.title}</h2>
       <p>${shortenText(product.description)}</p>
       <h2> NOK ${product.price}</h2>
+   
   
       <button class='btn addCard' > More details </button>
-    </div>
-    </a>
+      </div>
+      </a>
     `;
     mainContent.innerHTML += jsx;
   });
@@ -43,11 +43,11 @@ const showProducts = (products) => {
 
 //list card
 
-mainContent.addEventListener("click", (e) => {
-  if (e.target.classList.contains("addCard")) {
-    addProductToCard(productId);
-  }
-});
+// mainContent.addEventListener("click", (e) => {
+//   if (e.target.classList.contains("addCard")) {
+//     addProductToCard(productId);
+//   }
+// });
 
 
 
@@ -131,7 +131,7 @@ async function main() {
   posts = await doFetch(url);
   pageLoading();
   showProducts(posts);
-
+ 
   
 }
 
