@@ -41,13 +41,7 @@ const showProducts = (products) => {
   });
 };
 
-//list card
 
-// mainContent.addEventListener("click", (e) => {
-//   if (e.target.classList.contains("addCard")) {
-//     addProductToCard(productId);
-//   }
-// });
 
 
 

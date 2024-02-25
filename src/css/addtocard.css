@@ -101,7 +101,9 @@ h1{
   .selected-size{
     width: 30px;
   }
-
+.counter{
+  display: none;
+}
 
 }
 

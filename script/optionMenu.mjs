@@ -2,7 +2,7 @@ const optionMenu = document.querySelector(".category"),
   selectBtn = optionMenu.querySelector(".select-btn"),
   options = optionMenu.querySelectorAll(".gender"),
   btnText = optionMenu.querySelector(".btn-text");
-//   selectedOption = optionMenu.querySelectorAll(".gender-text");
+
 
 selectBtn.addEventListener("click", () =>
   optionMenu.classList.toggle("active")

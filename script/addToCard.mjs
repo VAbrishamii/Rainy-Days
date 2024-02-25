@@ -1,6 +1,5 @@
 import { burgerIcon, crossIcon, burgerMenu } from "./showburgerMenu.mjs";
 import { url } from "./BaseUrl.mjs";
-import { shortenText } from "./shortenText.mjs";
 import { pageLoading } from "./loader.mjs";
 
 
@@ -169,19 +168,19 @@ export function updateCartDisplay() {
 
   const productCounter = document.querySelector('.counter');
     productCounter.textContent = totalProduct;
+
 }
 
 addCard.addEventListener('click', ()=> {
-  console.log('click')
 addProductToCard(productId);
-console.log(productId)
 updateCartDisplay();
 updateLocalStorage();
 });
 
 iconCard.addEventListener("click", () => {
-  console.log('click');
   body.classList.toggle("showCard");
+  updateCartDisplay();
+  updateLocalStorage();
 });
 
 
@@ -212,7 +211,6 @@ async function doFetch(url) {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.log("Error", error);
     alert("An error ocuured! Please try again");
   }
 }
@@ -228,7 +226,6 @@ async function main() {
     updateLocalStorage();
 
   } catch (error) {
-    console.log("Error fetching data:", error);
     alert("An error ocuured! Please try again");
   }
 }
