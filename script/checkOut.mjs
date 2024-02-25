@@ -91,6 +91,7 @@ function updateLocalStorage(cart) {
 
   confirmButton.addEventListener("click", function(event) {
     event.preventDefault(); 
+    localStorage.removeItem('cart');
     window.location.href = "./checkoutsuccess.html";
   });
 
