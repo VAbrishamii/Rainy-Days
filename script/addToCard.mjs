@@ -90,7 +90,6 @@ export function addToCard(product) {
   updateCartDisplay();
   updateLocalStorage();
 
-
 }
 
 export function updateCartDisplay() {
@@ -179,8 +178,7 @@ updateLocalStorage();
 
 iconCard.addEventListener("click", () => {
   body.classList.toggle("showCard");
-  updateCartDisplay();
-  updateLocalStorage();
+
 });
 
 

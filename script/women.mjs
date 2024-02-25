@@ -36,3 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const isWomen = womenProducts();
     displayWomenProducts(isWomen);
 })
+
+function scrolll() {
+  var left = document.querySelector(".image-slider");
+  left.scrollBy(350, 0);
+}
+function scrollr() {
+  var right = document.querySelector(".image-slider");
+  right.scrollBy(-350, 0);
+}
