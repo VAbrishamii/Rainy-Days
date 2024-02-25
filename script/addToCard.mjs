@@ -172,7 +172,9 @@ export function updateCartDisplay() {
 }
 
 addCard.addEventListener('click', ()=> {
+  console.log('click')
 addProductToCard(productId);
+console.log(productId)
 updateCartDisplay();
 updateLocalStorage();
 });
